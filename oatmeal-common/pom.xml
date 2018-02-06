@@ -27,6 +27,8 @@
 		<jaxb-annotations.version>2.8.9</jaxb-annotations.version>
 		<redisson.version>3.5.0</redisson.version>
 		<orika.version>1.5.2</orika.version>
+		<cglib.version>3.2.5</cglib.version>
+		<javax.validation.version>1.1.0.Final</javax.validation.version>
 	</properties>
 
 	<dependencyManagement>
@@ -60,12 +62,6 @@
 				<groupId>commons-beanutils</groupId>
 				<artifactId>commons-beanutils</artifactId>
 				<version>${commons-beanutils.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>commons-logging</groupId>
-						<artifactId>commons-logging</artifactId>
-					</exclusion>
-				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>commons-logging</groupId>
@@ -97,6 +93,16 @@
 				<artifactId>orika-core</artifactId>
 				<version>${orika.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>cglib</groupId>
+				<artifactId>cglib</artifactId>
+				<version>${cglib.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+				<version>${javax.validation.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -124,12 +130,6 @@
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>commons-logging</groupId>
@@ -144,6 +144,10 @@
 			<artifactId>dozer</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.fasterxml.jackson.module</groupId>
 			<artifactId>jackson-module-jaxb-annotations</artifactId>
 		</dependency>
@@ -154,7 +158,10 @@
 		<dependency>
 		    <groupId>cglib</groupId>
 		    <artifactId>cglib</artifactId>
-		    <version>3.2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
 		</dependency>
 	</dependencies>
 </project>

@@ -14,17 +14,17 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
 	</properties>
 	<dependencies>
-		<!-- <dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>oatmeal-common</artifactId>
-			<version>${project.version}</version>
-		</dependency> -->
 		<dependency>
 			<groupId>org.redisson</groupId>
 			<artifactId>redisson</artifactId>
+			<version>3.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.39</version>
 		</dependency>
 		<dependency>
 			<groupId>redis.clients</groupId>

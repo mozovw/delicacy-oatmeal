@@ -10,6 +10,7 @@
 		<module>oatmeal-redis</module>
 		<module>oatmeal-test</module>
 		<module>oatmeal-mail</module>
+		<module>oatmeal-webmagic</module>
 	</modules>
 	<groupId>com.delicacy</groupId>
     <artifactId>delicacy-oatmeal</artifactId>
