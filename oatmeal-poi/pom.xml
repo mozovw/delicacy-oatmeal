@@ -18,11 +18,6 @@
 		<easypoi.version>2.4.0</easypoi.version>
 	</properties>
 	<dependencies>
-		<!-- <dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>oatmeal-common</artifactId>
-			<version>${project.version}</version>
-		</dependency> -->
 		<!-- poi office begin -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
