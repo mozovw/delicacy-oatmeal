@@ -68,9 +68,6 @@ public interface DistributedCache {
 	List<?> hashMultiGet(String key, Collection<Object> hashKeys);
 
 	void sendMessage(String topic, String message);
-	
-	/**
-	 * 是否存在指定key
-	 */
+
 	boolean hasKey(String key);
 }

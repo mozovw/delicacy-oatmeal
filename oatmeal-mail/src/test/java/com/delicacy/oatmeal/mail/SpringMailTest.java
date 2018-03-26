@@ -9,14 +9,14 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = SpringbootApplication.class)
 public class SpringMailTest {
 
 	@Autowired
 	private JavaMailSender mailSender;
 
 	@Test
-	public void sendSimpleMail() throws Exception {
+	public void sendSimpleMail()  {
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setFrom("zhangyutao@tomato.shop");
 		message.setTo("yutao.xz@qq.com");

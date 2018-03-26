@@ -9,7 +9,7 @@ public class IdWorker {
 	private final long workerIdBits = 4L; // 机器标识位数
 	private final long sequenceBits = 12L; // 毫秒内自增位
 
-	private final long maxWorkerId = -1L ^ -1L << this.workerIdBits;// 机器ID最大值:16
+	public final long maxWorkerId = -1L ^ -1L << this.workerIdBits;// 机器ID最大值:16
 
 	private final long workerIdShift = this.sequenceBits; // 12
 	private final long timestampLeftShift = this.sequenceBits + this.workerIdBits;

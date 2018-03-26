@@ -1,5 +1,7 @@
 package com.delicacy.oatmeal.redis.autoconfig;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -17,17 +19,6 @@ public class IdWorkerAutoConfiguration {
     @Autowired
     private IdWorkerProperties idWorkerProperties;
 
-    /**
-     * 两种使用方式 1、spring上下文中有一个bean idWorker 2、这个实例已经被设置在工具类中 直接使用工具类
-     * <p>
-     * Title: idWorker<br>
-     * Description: idWorker<br>
-     * CreateDate: 2017年9月6日 下午4:40:38<br>
-     *
-     * @return
-     * @category idWorker
-     * @author woody
-     */
     @Bean
     IdWorker idWorker() {
         IdWorker idWorker = new IdWorker(idWorkerProperties.getWorkerId());
@@ -37,15 +28,8 @@ public class IdWorkerAutoConfiguration {
 }
 
 @ConfigurationProperties(prefix = "idworker")
+@Getter
+@Setter
 class IdWorkerProperties {
-
     private int workerId;
-
-    public int getWorkerId() {
-        return workerId;
-    }
-
-    public void setWorkerId(int workId) {
-        this.workerId = workId;
-    }
 }
