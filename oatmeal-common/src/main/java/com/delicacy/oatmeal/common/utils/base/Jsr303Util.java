@@ -1,12 +1,11 @@
 package com.delicacy.oatmeal.common.utils.base;
 
-import java.util.Iterator;
-import java.util.Set;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
-
-import org.apache.commons.lang3.StringUtils;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * JSR303的校验帮助类
@@ -29,10 +28,19 @@ public class Jsr303Util {
 			StringBuilder sb = new StringBuilder();
 			for (Iterator<ConstraintViolation<Object>> iterator = validResult.iterator(); iterator.hasNext();) {
 				ConstraintViolation<Object> constraintViolation = (ConstraintViolation<Object>) iterator.next();
-				if(StringUtils.isNotBlank(constraintViolation.getMessage())) {
-					sb.append(constraintViolation.getMessage()).append("、");
-				} else {
-					sb.append(constraintViolation.getPropertyPath().toString()).append("、");
+				String string = constraintViolation.getPropertyPath().toString();
+				String message = constraintViolation.getMessage();
+				if(StringUtils.isNotBlank(message) &&
+						message.contains(string)) {
+					sb.append(message).append("、");
+				} else if(StringUtils.isNotBlank(message) &&
+						!message.contains(string)){
+					int i = message.indexOf("不");
+					//第一个是不
+					if (i==0)sb.append(string).append(message).append("、");
+					else sb.append(message).append("、");
+				}else {
+					sb.append(string).append("、");
 				}
 			}
 			if (sb.lastIndexOf("、") == sb.length() - 1) {
