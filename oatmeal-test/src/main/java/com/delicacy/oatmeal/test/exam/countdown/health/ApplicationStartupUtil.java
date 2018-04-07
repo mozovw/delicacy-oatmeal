@@ -43,7 +43,7 @@ public class ApplicationStartupUtil {
 		executor.shutdown();
 		while (!executor.isTerminated()) {
 		}
-		// Now wait till all services are checked
+		// Now wait till all service are checked
 		_latch.await();
 
 		// Services are file and now proceed startup
