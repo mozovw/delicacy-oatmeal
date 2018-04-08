@@ -11,8 +11,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.delicacy.oatmeal.common.utils.base.ObjectUtil;
-import com.delicacy.oatmeal.common.utils.base.ValidateUtil;
+import com.delicacy.oatmeal.common.util.base.ObjectUtil;
+import com.delicacy.oatmeal.common.util.base.ValidateUtil;
 
 public class StringTest {
 
