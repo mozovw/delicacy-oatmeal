@@ -11,7 +11,8 @@
 		<module>oatmeal-test</module>
 		<module>oatmeal-mail</module>
 		<module>oatmeal-webmagic</module>
-	</modules>
+        <module>oatmeal-java</module>
+    </modules>
 	<groupId>com.delicacy</groupId>
     <artifactId>delicacy-oatmeal</artifactId>
     <packaging>pom</packaging>
