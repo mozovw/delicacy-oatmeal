@@ -11,7 +11,7 @@ import java.util.concurrent.CountDownLatch;
 public class ValitileDemo2 extends Thread{
     public volatile int inc = 0;
 
-    public synchronized void increase() {
+    public /*synchronized*/ void increase() {
         inc++;
     }
 
