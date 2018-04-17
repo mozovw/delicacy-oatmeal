@@ -13,7 +13,7 @@ import java.util.stream.IntStream;
 /**
  * Lamdbas java8 函数式开发简单汇总
  */
-public class LamdbdaDemo {
+public class LamdbaDemo {
 
     /**
      * 测试排序

@@ -1,4 +1,4 @@
-package com.delicacy.oatmeal.java.valitiletest;
+package com.delicacy.oatmeal.java.volatiletest;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -8,7 +8,7 @@ import java.util.concurrent.CountDownLatch;
  * @author zyt
  * @create 2018-04-15 12:53
  **/
-public class ValitileDemo2 extends Thread{
+public class VolatileDemo2 extends Thread{
     public volatile int inc = 0;
 
     public /*synchronized*/ void increase() {
@@ -20,7 +20,7 @@ public class ValitileDemo2 extends Thread{
     }
 
     private static void process1() {
-        final ValitileDemo2 test = new ValitileDemo2();
+        final VolatileDemo2 test = new VolatileDemo2();
         for(int i=0;i<10;i++){
             new Thread(() -> {
                 for(int j=0;j<1000;j++)
@@ -36,7 +36,7 @@ public class ValitileDemo2 extends Thread{
     private static void process2() {
         final int count = 10;
         final CountDownLatch latch = new CountDownLatch(count);
-        final ValitileDemo2 test = new ValitileDemo2();
+        final VolatileDemo2 test = new VolatileDemo2();
         for(int i=0; i<count; i++){
             new Thread(()->{
                 for(int j=0;j<1000;j++){
@@ -53,7 +53,7 @@ public class ValitileDemo2 extends Thread{
     }
 
     private static void process3() {
-        final ValitileDemo2 test = new ValitileDemo2();
+        final VolatileDemo2 test = new VolatileDemo2();
 
         Thread thread = new Thread(() -> {
             for (int j = 0; j < 1000; j++)
