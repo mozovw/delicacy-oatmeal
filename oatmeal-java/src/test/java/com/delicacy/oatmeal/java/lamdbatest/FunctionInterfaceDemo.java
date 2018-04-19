@@ -2,6 +2,11 @@ package com.delicacy.oatmeal.java.lamdbatest;
 
 import lombok.Data;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * function demo
  * 方法参数以往都是类，变量属性，但是并没有当函数作为入参，而函数入参是有必要的，
@@ -19,6 +24,21 @@ public class FunctionInterfaceDemo {
         person.setName("tom");
         person.selfintroduc(e->{return "我叫"+e.getName()+",我今年"+e.getAge(); });
 
+
+
+        File f = new File(".");
+        File[] files = f.listFiles((File dir, String name) -> {
+            if (name.endsWith(".txt")) {
+                return true;
+            }
+            return false;
+        });
+
+        ArrayList<Object> objects = new ArrayList<>();
+        objects.stream().forEach(e-> System.out.println(e));
+
+
+        List<Object> objects1 = Arrays.asList(new Object(), new Object(), new Object(), new Object(), new Object(), new Object());
     }
 
 }

@@ -79,9 +79,7 @@ public class LamdbaDemo {
         // noneMatch:是否都不
         System.out.println(ages2.noneMatch(item -> item < 100));
 
-
         ages.boxed().collect(Collectors.toList()).forEach(k -> System.out.println(k));
-
 
         // 提取name
         List<String> names = peoples.stream().map(People::getName).collect(Collectors.toList());

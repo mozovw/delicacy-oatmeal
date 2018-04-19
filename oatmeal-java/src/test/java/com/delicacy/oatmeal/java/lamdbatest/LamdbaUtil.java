@@ -1,5 +1,7 @@
 package com.delicacy.oatmeal.java.lamdbatest;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.util.Collection;
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -36,6 +38,10 @@ public class LamdbaUtil {
     public static <T,R> R saveList(Collection<T> ts, Predicate<Collection<T>> predicate, Function<Collection<T>,R>  function1,Function<Collection<T>,R>  function2) {
         if (predicate.test(ts)) return function1.apply(ts);
         else  return function2.apply(ts);
+    }
+
+    public static <T> Boolean check(T t, Predicate<T> predicate) {
+        return predicate.test(t);
     }
 
 }
