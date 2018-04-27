@@ -1,4 +1,5 @@
-package com.delicacy.oatmeal.redis.cache;
+package com.delicacy.oatmeal.idworker.idworker;
+
 
 /**
  * id构成: 42位的时间前缀 + 10位的节点标识 + 12位的sequence避免并发的数字(12位不够用时强制得到新的时间前缀)
@@ -68,4 +69,13 @@ public class IdWorker {
 	private long currentTimeMillis() {
 		return System.currentTimeMillis();
 	}
+
+	public static void main(String[] args) {
+		IdWorker idWorker = new IdWorker(0);
+		System.out.println(idWorker.nextId());
+		System.out.println(idWorker.nextId());
+		System.out.println(idWorker.nextId());
+		System.out.println(idWorker.nextId());
+	}
+
 }

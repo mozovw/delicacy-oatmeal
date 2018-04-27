@@ -1,5 +1,7 @@
-package com.delicacy.oatmeal.redis.autoconfig;
+package com.delicacy.oatmeal.idworker.autoconfig;
 
+import com.delicacy.oatmeal.idworker.idworker.IdWorker;
+import com.delicacy.oatmeal.idworker.utils.IdWorkerUtil;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +10,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import com.delicacy.oatmeal.redis.cache.IdWorker;
-import com.delicacy.oatmeal.redis.utils.IdWorkerUtil;
 
 @Configuration
 @ConditionalOnProperty(prefix = "idworker", name = {"workerId"})

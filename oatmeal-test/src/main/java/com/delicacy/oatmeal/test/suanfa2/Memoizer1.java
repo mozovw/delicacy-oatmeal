@@ -8,7 +8,7 @@ import net.jcip.annotations.*;
 /**
  * Memoizer1
  *
- * Initial cache attempt using HashMap and synchronization
+ * Initial idworker attempt using HashMap and synchronization
  *
  * @author Brian Goetz and Tim Peierls
  */

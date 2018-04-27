@@ -1,10 +1,10 @@
-package com.delicacy.oatmeal.redis.utils;
+package com.delicacy.oatmeal.idworker.utils;
 
-import com.delicacy.oatmeal.redis.cache.IdWorker;
+
+import com.delicacy.oatmeal.idworker.idworker.IdWorker;
 
 /**
  * ID 生成工具
- * <p>
  * Title: IdWorkerUtils<br>
  * Description: IdWorkerUtils<br>
  * CreateDate:2017年9月25日 下午1:34:01

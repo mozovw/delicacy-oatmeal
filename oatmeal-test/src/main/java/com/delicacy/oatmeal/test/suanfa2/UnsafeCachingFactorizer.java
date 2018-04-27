@@ -9,7 +9,7 @@ import net.jcip.annotations.*;
 /**
  * UnsafeCachingFactorizer
  *
- * Servlet that attempts to cache its last result without adequate atomicity
+ * Servlet that attempts to idworker its last result without adequate atomicity
  *
  * @author Brian Goetz and Tim Peierls
  */

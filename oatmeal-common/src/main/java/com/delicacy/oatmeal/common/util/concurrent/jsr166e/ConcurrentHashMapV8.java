@@ -441,7 +441,7 @@ public class ConcurrentHashMapV8<K,V> extends AbstractMap<K,V>
      * just use a LongAdder in order to access implicit
      * contention-sensing that leads to creation of multiple
      * CounterCells.  The counter mechanics avoid contention on
-     * updates but can encounter cache thrashing if read too
+     * updates but can encounter idworker thrashing if read too
      * frequently during concurrent access. To avoid reading so often,
      * resizing under contention is attempted only upon adding to a
      * bin already holding two or more nodes. Under uniform hash

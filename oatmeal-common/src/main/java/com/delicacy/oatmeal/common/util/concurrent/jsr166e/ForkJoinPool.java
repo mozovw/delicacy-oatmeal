@@ -197,13 +197,13 @@ public class ForkJoinPool extends AbstractExecutorService {
      * task processing is in FIFO, not LIFO order, simply by using
      * poll rather than pop.  This can be useful in message-passing
      * frameworks in which tasks are never joined.  However neither
-     * mode considers affinities, loads, cache localities, etc, so
+     * mode considers affinities, loads, idworker localities, etc, so
      * rarely provide the best possible performance on a given
      * machine, but portably provide good throughput by averaging over
      * these factors.  (Further, even if we did try to use such
      * information, we do not usually have a basis for exploiting it.
-     * For example, some sets of tasks profit from cache affinities,
-     * but others are harmed by cache pollution effects.)
+     * For example, some sets of tasks profit from idworker affinities,
+     * but others are harmed by idworker pollution effects.)
      *
      * WorkQueues are also used in a similar way for tasks submitted
      * to the pool. We cannot mix these tasks in the same queues used
@@ -607,7 +607,7 @@ public class ForkJoinPool extends AbstractExecutorService {
      * Performance on most platforms is very sensitive to placement of
      * instances of both WorkQueues and their arrays -- we absolutely
      * do not want multiple WorkQueue instances or multiple queue
-     * arrays sharing cache lines. (It would be best for queue objects
+     * arrays sharing idworker lines. (It would be best for queue objects
      * and their arrays to share, but there is nothing available to
      * help arrange that). The @Contended annotation alerts JVMs to
      * try to keep instances apart.

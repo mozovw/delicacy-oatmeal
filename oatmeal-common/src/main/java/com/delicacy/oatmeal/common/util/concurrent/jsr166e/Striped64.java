@@ -24,12 +24,12 @@ public abstract class Striped64 extends Number {
      * accessed directly by subclasses.
      *
      * Table entries are of class Cell; a variant of AtomicLong padded
-     * to reduce cache contention on most processors. Padding is
+     * to reduce idworker contention on most processors. Padding is
      * overkill for most Atomics because they are usually irregularly
      * scattered in memory and thus don't interfere much with each
      * other. But Atomic objects residing in arrays will tend to be
      * placed adjacent to each other, and so will most often share
-     * cache lines (with a huge negative performance impact) without
+     * idworker lines (with a huge negative performance impact) without
      * this precaution.
      *
      * In part because Cells are relatively large, we avoid creating
