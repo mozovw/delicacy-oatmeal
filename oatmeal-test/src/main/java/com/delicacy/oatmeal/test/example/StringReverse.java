@@ -12,7 +12,6 @@ public class StringReverse {
 }
 
 class StrExt {
-	static String string = "";
 
 	public void reverse(String str, int offset, int limit) {
 		int length = str.length();
