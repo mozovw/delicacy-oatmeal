@@ -12,7 +12,8 @@
 		<module>oatmeal-test</module>
 		<module>oatmeal-webmagic</module>
         <module>oatmeal-java</module>
-    </modules>
+		<module>oatmeal-validation</module>
+	</modules>
 	<groupId>com.delicacy</groupId>
     <artifactId>delicacy-oatmeal</artifactId>
     <packaging>pom</packaging>

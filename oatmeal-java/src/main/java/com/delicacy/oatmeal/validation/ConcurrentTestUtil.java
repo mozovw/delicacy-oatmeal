@@ -1,4 +1,4 @@
-package com.delicacy.oatmeal.java.java8;
+package com.delicacy.oatmeal.validation;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;

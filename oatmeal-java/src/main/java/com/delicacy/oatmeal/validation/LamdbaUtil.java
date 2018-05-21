@@ -1,4 +1,4 @@
-package com.delicacy.oatmeal.java.java8;
+package com.delicacy.oatmeal.validation;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 

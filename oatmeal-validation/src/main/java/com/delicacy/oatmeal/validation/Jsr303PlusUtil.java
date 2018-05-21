@@ -1,6 +1,5 @@
-package com.delicacy.oatmeal.common.util.base;
+package com.delicacy.oatmeal.validation;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.CollectionUtils;
 
 import java.util.LinkedHashMap;
@@ -18,7 +17,7 @@ public class Jsr303PlusUtil {
     public static  <T> String checkObject(T t){
         if(null==t)return "对象为空";
         String check = Jsr303Util.check(t);
-        if (!StringUtils.isBlank(check))return check;
+        if (isNotBlank(check))return check;
         return null;
     }
 
@@ -27,11 +26,11 @@ public class Jsr303PlusUtil {
         StringBuilder builder = new StringBuilder();
         for(int i  = 0 ; i < t.size();i++){
             String str1 = checkObject(t.get(i));
-            if(!StringUtils.isBlank(str1)){
+            if(isNotBlank(str1)){
                 builder.append(String.format("第%s条:error=(%s); ",i+1,str1));
             }
         }
-        if(StringUtils.isBlank(builder.toString()))
+        if(!isNotBlank(builder.toString()))
         return null;
         return builder.toString();
     }
@@ -44,11 +43,15 @@ public class Jsr303PlusUtil {
         }
         for(int i  = 0 ; i < t.size();i++){
             String str1 = checkObject(t.get(i));
-            if(!StringUtils.isBlank(str1)){
+            if(isNotBlank(str1)){
                 map.put(i+1,str1);
             }
         }
         return map;
+    }
+
+    private static boolean isNotBlank(String string){
+        return null!=string && !"".equals(string);
     }
 
     /*public static  <T> List<ImportResponse> checkList2List(List<T> t){
