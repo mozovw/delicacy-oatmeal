@@ -10,9 +10,7 @@ import java.util.List;
  * 自定义注解ListNotHasNull 的实现类
  * 用于判断List集合中是否含有null元素
  */
-
-@Service
-public class ListNotHasNullValidatorImpl implements ConstraintValidator<ListNotHasNull, List> {
+public class ListNotHasNullValidator implements ConstraintValidator<ListNotHasNull, List> {
 
     private int value;
 
