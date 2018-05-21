@@ -112,8 +112,9 @@ class Customer {
     }
 }
 
-public class LockTest3 {  
-    public static void main(String[] args) {  
+public class LockTest3 {
+    public static void main(String[] args) {
+        System.out.println("size表示池子只有那么100那么大，left表示想要多少");
         Depot mDepot = new Depot(100);
         Producer mPro = new Producer(mDepot);
         Customer mCus = new Customer(mDepot);

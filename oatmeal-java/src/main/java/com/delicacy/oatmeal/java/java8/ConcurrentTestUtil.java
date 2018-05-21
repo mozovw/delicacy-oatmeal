@@ -1,4 +1,4 @@
-package com.delicacy.oatmeal.idworker;
+package com.delicacy.oatmeal.java.java8;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -27,22 +27,15 @@ public class ConcurrentTestUtil {
             }).start();
             countDownLatch.countDown();
         }
-        while(Thread.activeCount()>1){
-            //保证前面的线程都执行完
-            Thread.yield();
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
     public static <T> void test(T t,Consumer<T> consumer){
         test(t,consumer,THREADNUM);
     }
-    public static void test(Consumer consumer){
-        test(null,consumer,THREADNUM);
-    }
-
-    public static void test(Consumer consumer,int threadNum){
-        test(null,consumer,threadNum);
-    }
-
 
 }

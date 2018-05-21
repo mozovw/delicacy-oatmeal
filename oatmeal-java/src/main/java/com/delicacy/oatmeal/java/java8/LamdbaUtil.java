@@ -1,4 +1,4 @@
-package com.delicacy.oatmeal.java.lamdbatest;
+package com.delicacy.oatmeal.java.java8;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 

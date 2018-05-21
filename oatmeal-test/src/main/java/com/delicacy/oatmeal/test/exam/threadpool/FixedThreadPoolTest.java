@@ -3,7 +3,7 @@ package com.delicacy.oatmeal.test.exam.threadpool;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class SimpleThreadPool {
+public class FixedThreadPoolTest {
 
     public static void main(String[] args) {
         ExecutorService executor = Executors.newFixedThreadPool(5);

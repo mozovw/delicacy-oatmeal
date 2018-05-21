@@ -10,7 +10,6 @@
 		<module>oatmeal-idworker</module>
 		<module>oatmeal-redis</module>
 		<module>oatmeal-test</module>
-		<module>oatmeal-mail</module>
 		<module>oatmeal-webmagic</module>
         <module>oatmeal-java</module>
     </modules>

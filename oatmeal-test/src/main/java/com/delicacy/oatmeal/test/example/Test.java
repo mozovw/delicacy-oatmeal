@@ -6,6 +6,8 @@ import java.util.Map;
 
 
 public class Test {
+
+	private static final String str = new String ("dd");
 	
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		 String ss =  new String("\u5feb\u901f\u5f00\u53d1\u5e73\u53f0"
@@ -30,15 +32,12 @@ public class Test {
 	        if (i==32&&(i+=1)==33) {
 	        	System.out.println(i);
 	        }
-	        
-	        System.out.println("😁");
-	        System.out.println(Integer.MAX_VALUE);
-	        
-	        String one = "someString";  
-	        String two = "someString"; 
-	        
-	        System.out.println(one == two);
+
 	        //ConcurrentLinkedQueue
 	        System.out.println(1 << 29);
+
+		int i1 = Runtime.getRuntime().availableProcessors();
+		System.out.println(i1);
+
 	}
 }
