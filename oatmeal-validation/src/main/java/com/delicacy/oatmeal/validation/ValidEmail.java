@@ -12,7 +12,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 @Documented
 @Constraint(validatedBy = { EmailValidator.class })
-public @interface Email {
+public @interface ValidEmail {
 
     String message() default "不是有效的电子邮件格式";
 
@@ -27,7 +27,7 @@ public @interface Email {
     @Documented
     @interface List {
 
-        Email[] value();
+        ValidEmail[] value();
     }
 
 }

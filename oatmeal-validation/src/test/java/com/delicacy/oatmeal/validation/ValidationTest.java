@@ -1,5 +1,6 @@
 package com.delicacy.oatmeal.validation;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.junit.Test;
 
 import javax.validation.Valid;
@@ -19,16 +20,17 @@ public class ValidationTest {
 
     @Test
     public void test(){
-        User user = new User();
-        user = getUser(user);
+        User user = getUser(new User());
         String check = Jsr303Util.check(user);
         System.out.println(check);
     }
 
     private User getUser(@Valid User user){
-//        List<Book> books = Arrays.asList(new Book());
-//        user.setBooks(books);
+        List<Book> books = Arrays.asList(new Book());
+        user.setBooks(books);
+        user.setEmail2("sss");
         return user;
     }
+
 
 }

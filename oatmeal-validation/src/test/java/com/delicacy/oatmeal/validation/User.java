@@ -2,6 +2,7 @@ package com.delicacy.oatmeal.validation;
 
 import lombok.Data;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -12,22 +13,23 @@ import java.util.List;
 @Data
 public class User {
 
-    //其他参数 .......
-
     @NotBlank
     private String name;
 
     @NotNull
     private Integer age;
 
-    @Email
+    @ValidEmail
     private String email;
 
-    /**
-     * 所拥有的书籍列表
-     */
-    @NotEmpty
+    @Email
+    @NotBlank
+    private String email2;
+
     @ListNotHasNull
     private List<Book> books;
-    //getter setter 方法.......
+
+    @NotEmpty
+    private List<String> nicknames;
+
 }
