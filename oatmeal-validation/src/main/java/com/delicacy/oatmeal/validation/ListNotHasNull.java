@@ -24,7 +24,7 @@ public @interface ListNotHasNull {
      */
     int value() default 0;
 
-    String message() default "不能有null数据";
+    String message() default "不能都为null数据";
 
     Class<?>[] groups() default {};
 

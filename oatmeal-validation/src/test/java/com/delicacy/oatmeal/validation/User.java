@@ -27,6 +27,7 @@ public class User {
     private String email2;
 
     @ListNotHasNull
+    @NotEmpty
     private List<Book> books;
 
     @NotEmpty

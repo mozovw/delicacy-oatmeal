@@ -26,7 +26,8 @@ public class ValidationTest {
     }
 
     private User getUser(@Valid User user){
-        List<Book> books = Arrays.asList(new Book());
+        List<Book> books = new ArrayList<>();
+        books.add(null);
         user.setBooks(books);
         user.setEmail2("sss");
         return user;
