@@ -21,6 +21,8 @@ public class IdWorkerExt {
     private final long timestampLeftShift = this.sequenceBits + this.workerIdBits;// 22
     private final long sequenceMask = -1L ^ -1L << this.sequenceBits;// 4095,111111111111,12位
 
+
+
     private long lastTimestamp = -1L;
 
     public IdWorkerExt(long workerId) {
@@ -80,7 +82,7 @@ public class IdWorkerExt {
         IdWorkerExt iw1 = new IdWorkerExt(1);
         IdWorkerExt iw2 = new IdWorkerExt(2);
         IdWorkerExt iw3 = new IdWorkerExt(3);
-
+        System.out.println(-1L ^ -1L);
          System.out.println(iw1.maxWorkerId);
          System.out.println(iw1.sequenceMask);
 
@@ -92,11 +94,11 @@ public class IdWorkerExt {
         long workerIdBits = 10L;
         long maxWorkerId = -1L ^ -1L << workerIdBits;// 1023,1111111111,10位
         long sequenceBits = 12L;
-
+        System.out.println(maxWorkerId);
         long workerIdShift = sequenceBits;// 12
         long timestampLeftShift = sequenceBits + workerIdBits;// 22
         long sequenceMask = -1L ^ -1L << sequenceBits;// 4095,111111111111,12位
-
+        System.out.println(sequenceMask);
         long ct = System.currentTimeMillis();// 1330328109047L;//
         System.out.println(ct);
 

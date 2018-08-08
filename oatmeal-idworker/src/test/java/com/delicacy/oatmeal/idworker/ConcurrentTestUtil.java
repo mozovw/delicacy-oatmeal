@@ -27,10 +27,10 @@ public class ConcurrentTestUtil {
             }).start();
             countDownLatch.countDown();
         }
-        while(Thread.activeCount()>1){
+        /*while(Thread.activeCount()>1){
             //保证前面的线程都执行完
             Thread.yield();
-        }
+        }*/
     }
 
     public static <T> void test(T t,Consumer<T> consumer){
