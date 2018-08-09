@@ -1,4 +1,4 @@
-package com.delicacy.oatmeal.validation;
+package com.delicacy.oatmeal.java;
 
 /**
  * 秒表

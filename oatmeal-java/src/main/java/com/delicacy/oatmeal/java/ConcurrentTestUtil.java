@@ -1,4 +1,4 @@
-package com.delicacy.oatmeal.validation;
+package com.delicacy.oatmeal.java;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -26,11 +26,6 @@ public class ConcurrentTestUtil {
                 consumer.accept(t);
             }).start();
             countDownLatch.countDown();
-        }
-        try {
-            TimeUnit.SECONDS.sleep(3);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 

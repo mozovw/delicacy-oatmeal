@@ -1,4 +1,4 @@
-package com.delicacy.oatmeal.validation;
+package com.delicacy.oatmeal.java;
 
 import java.io.File;
 import java.io.IOException;
