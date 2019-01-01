@@ -18,7 +18,6 @@ public class RedisCacheUtilTest {
 			RedisCacheUtil.set("helloworld", "helloworld");
 			ss = RedisCacheUtil.get("helloworld");
 			System.out.println(ss);
-
 		}
 	}
 

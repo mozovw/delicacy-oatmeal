@@ -12,7 +12,6 @@ import java.util.Random;
 
 import javax.net.ServerSocketFactory;
 
-import com.delicacy.oatmeal.common.util.base.SystemPropertiesUtil;
 import com.delicacy.oatmeal.common.util.collection.MapUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -144,15 +143,28 @@ public class NetUtil {
 		logger.info("localhost is {}", localHost);
 	}
 
+	public static String getString(String propertyName, String envName, String defaultValue) {
+		if (envName == null || envName.indexOf('.') != -1) {
+			throw new IllegalArgumentException("envName " + envName + " has dot which is not valid");
+		}
+		String propertyValue = System.getProperty(propertyName);
+		if (propertyValue != null) {
+			return propertyValue;
+		} else {
+			propertyValue = System.getenv(envName);
+			return propertyValue != null ? propertyValue : defaultValue;
+		}
+	}
+
 	/**
 	 * 根据preferNamePrefix 与 defaultNicList的配置网卡，找出合适的网卡
 	 */
 	private static InetAddress findLocalAddressViaNetworkInterface() {
 		// 如果hostname +/etc/hosts 得到的是127.0.0.1, 则首选这块网卡
-		String preferNamePrefix = SystemPropertiesUtil.getString("localhost.prefer.nic.prefix",
+		String preferNamePrefix = getString("localhost.prefer.nic.prefix",
 				"LOCALHOST_PREFER_NIC_PREFIX", "bond0.");
 		// 如果hostname +/etc/hosts 得到的是127.0.0.1, 和首选网卡都不符合要求，则按顺序遍历下面的网卡
-		String defaultNicList = SystemPropertiesUtil.getString("localhost.default.nic.list",
+		String defaultNicList = getString("localhost.default.nic.list",
 				"LOCALHOST_DEFAULT_NIC_LIST", "bond0,eth0,em0,br0");
 
 		InetAddress resultAddress = null;

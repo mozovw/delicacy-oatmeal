@@ -76,8 +76,7 @@ public class ExcelTmpUtil {
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
-	private static Workbook getWorkBook(String filePath) throws IOException,
-			FileNotFoundException {
+	private static Workbook getWorkBook(String filePath) throws IOException{
 		Workbook wb;
 		if (filePath.indexOf(".xlsx") != -1) {
 			wb = new XSSFWorkbook(new FileInputStream(filePath));

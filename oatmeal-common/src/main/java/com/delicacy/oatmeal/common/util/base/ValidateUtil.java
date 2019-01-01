@@ -1,10 +1,7 @@
 package com.delicacy.oatmeal.common.util.base;
 
 
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <b>核心类</b>,判断对象是否为null或者Empty.
@@ -277,4 +274,10 @@ public final class ValidateUtil {
         }
         return false;
     }
+
+    public static void main(String[] args) {
+        System.out.println(ValidateUtil.isNotNullOrEmpty(new ArrayList<>()));
+        System.out.println(ValidateUtil.isNullOrEmpty(new Object()));
+    }
+
 }

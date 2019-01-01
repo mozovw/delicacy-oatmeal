@@ -7,24 +7,19 @@ import java.io.StringReader;
 import java.util.Properties;
 
 import com.delicacy.oatmeal.common.util.number.NumberUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.delicacy.oatmeal.common.util.io.IOUtil;
 import com.delicacy.oatmeal.common.util.io.URLResourceUtil;
 
 /**
  * 关于Properties的工具类
- * 
+ *
  * 1. 统一读取Properties
- * 
+ *
  * 2. 从文件或字符串装载Properties
- * 
- * @author calvin
+ *
  */
 public class PropertiesUtil {
-
-	private static final Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);
 
 	/////////////////// 读取Properties ////////////////////
 
@@ -61,7 +56,7 @@ public class PropertiesUtil {
 			is = URLResourceUtil.asStream(generalPath);
 			p.load(is);
 		} catch (IOException e) {
-			logger.warn("Load property from " + generalPath + " fail ", e);
+			System.out.println("Load property from " + generalPath + " fail ");
 		} finally {
 			IOUtil.closeQuietly(is);
 		}
@@ -80,7 +75,6 @@ public class PropertiesUtil {
 		} finally {
 			IOUtil.closeQuietly(reader);
 		}
-
 		return p;
 	}
 

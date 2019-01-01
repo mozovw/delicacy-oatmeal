@@ -81,7 +81,6 @@ public class CacheConfig {
                 }
                 String join = String.join("&", Arrays.stream(params).map(Object::toString).collect(Collectors.toList()));
                 String format = String.format("%s{%s}", sb.toString(), join);
-                //log.info("缓存key：" + format);
                 return format;
             }
         };

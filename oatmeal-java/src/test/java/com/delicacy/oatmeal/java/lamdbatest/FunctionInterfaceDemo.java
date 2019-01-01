@@ -21,7 +21,7 @@ public class FunctionInterfaceDemo {
     public static void main(String[] args) {
         Person person = new Person();
         person.setAge(11);
-        person.setName("tom");
+        person.setName("consumer");
         person.selfintroduc(e->{return "我叫"+e.getName()+",我今年"+e.getAge(); });
 
 

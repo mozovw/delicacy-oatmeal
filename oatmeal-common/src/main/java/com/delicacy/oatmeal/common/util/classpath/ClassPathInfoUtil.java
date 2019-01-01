@@ -14,7 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public class ClassPathInfoUtil {
 	public static void main(String[] args) {
-		String arg = "com.delicacy.oatmeal.utils.classpath.ClassPathInfoUtil";
+		String arg = "com.delicacy.oatmeal.common.util.classpath.ClassPathInfoUtil";
 		getMethodNames(arg);
 	}
 
@@ -45,7 +45,7 @@ public class ClassPathInfoUtil {
 	/**
 	 * @Title: classInfo2Map
 	 * @Description: TODO
-	 * @param args
+	 * @param arg
 	 * @return: void
 	 */
 

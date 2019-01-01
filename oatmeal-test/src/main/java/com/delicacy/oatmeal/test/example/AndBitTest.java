@@ -1,6 +1,7 @@
 package com.delicacy.oatmeal.test.example;
 
-import com.delicacy.oatmeal.test.Stopwatch;
+
+import com.delicacy.oatmeal.test.exam.atomic.Stopwatch;
 
 /**
  * &的操作

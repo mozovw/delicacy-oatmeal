@@ -40,20 +40,6 @@ public class BooleanUtil {
 	}
 
 	/**
-	 * 取反
-	 */
-	public static boolean negate(final boolean bool) {
-		return !bool;
-	}
-
-	/**
-	 * 取反
-	 */
-	public static Boolean negate(final Boolean bool) {
-		return BooleanUtils.negate(bool);
-	}
-
-	/**
 	 * 多个值的and
 	 */
 	public static boolean and(final boolean... array) {
@@ -65,6 +51,23 @@ public class BooleanUtil {
 	 */
 	public static boolean or(final boolean... array) {
 		return BooleanUtils.or(array);
+	}
+
+
+
+	public static void main(String[] args) {
+		boolean aTrue = BooleanUtil.toBoolean("true");
+		System.out.println(aTrue);
+		aTrue = BooleanUtil.toBooleanObject("true");
+		System.out.println(aTrue);
+		aTrue = BooleanUtil.parseGeneralString("no");
+		System.out.println(aTrue);
+		aTrue = BooleanUtil.parseGeneralString("yes",false);
+		System.out.println(aTrue);
+		aTrue = BooleanUtil.and(true,false);
+		System.out.println(aTrue);
+		aTrue = BooleanUtil.or(true,false);
+		System.out.println(aTrue);
 	}
 
 }
