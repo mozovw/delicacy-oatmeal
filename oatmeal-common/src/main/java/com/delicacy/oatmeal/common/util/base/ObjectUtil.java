@@ -2,6 +2,9 @@ package com.delicacy.oatmeal.common.util.base;
 
 import java.util.Arrays;
 
+/**
+ * Object.toString打印内容
+ */
 public class ObjectUtil {
 
 	private static String NULL = "null";

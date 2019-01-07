@@ -79,4 +79,5 @@ public class URLResourceUtil {
 	public static URI toURI(String location) throws URISyntaxException {
 		return new URI(StringUtils.replace(location, " ", "%20"));
 	}
+
 }

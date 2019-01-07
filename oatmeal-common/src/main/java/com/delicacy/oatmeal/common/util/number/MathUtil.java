@@ -17,12 +17,11 @@ import com.google.common.math.LongMath;
  */
 public class MathUtil {
 
-	/////// 2 的倍数的计算////
 
 	/**
 	 * 是否2的倍数
 	 * 
-	 * @param value不是正数时总是返回false
+	 * @param value
 	 */
 	public static boolean isPowerOfTwo(int value) {
 		return IntMath.isPowerOfTwo(value);
@@ -46,7 +45,6 @@ public class MathUtil {
 		return value & mod - 1;
 	}
 
-	////////////// 其他函数//////////
 	/**
 	 * 两个数的最大公约数，必须均为非负数.
 	 * 

@@ -7,8 +7,6 @@ import java.util.Random;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.Validate;
 
-import com.delicacy.oatmeal.common.util.base.MoreValidate;
-
 /**
  * 随机数工具集.
  * 
@@ -19,11 +17,9 @@ import com.delicacy.oatmeal.common.util.base.MoreValidate;
  * 
  * 3. 随机字符串
  * 
- * @author calvin
  */
 public class RandomUtil {
 
-	/////////////////// 获取Random实例//////////////
 	/**
 	 * 返回无锁的ThreadLocalRandom
 	 */
@@ -46,7 +42,6 @@ public class RandomUtil {
 		}
 	}
 
-	////////////////// nextInt 相关/////////
 	/**
 	 * 返回0到Intger.MAX_VALUE的随机Int, 使用内置全局普通Random.
 	 */
@@ -97,12 +92,10 @@ public class RandomUtil {
 	 * min必须大于0.
 	 * 
 	 * JDK本身不具有控制两端范围的nextInt，因此参考Commons Lang RandomUtils的实现, 不直接复用是因为要传入Random实例
-	 * 
-	 * @see org.apache.commons.lang3.RandomUtils#nextInt(long, long)
-	 */
+	 **/
 	public static int nextInt(Random random, int min, int max) {
 		Validate.isTrue(max >= min, "Start value must be smaller or equal to end value.");
-		MoreValidate.nonNegative("min", min);
+		nonNegative("min", Long.valueOf(min));
 
 		if (min == max) {
 			return min;
@@ -111,7 +104,6 @@ public class RandomUtil {
 		return min + random.nextInt(max - min);
 	}
 
-	////////////////// long 相关/////////
 	/**
 	 * 返回0－Long.MAX_VALUE间的随机Long, 使用内置全局普通Random.
 	 */
@@ -166,7 +158,7 @@ public class RandomUtil {
 	 */
 	public static long nextLong(Random random, long min, long max) {
 		Validate.isTrue(max >= min, "Start value must be smaller or equal to end value.");
-		MoreValidate.nonNegative("min", min);
+		nonNegative("min", min);
 
 		if (min == max) {
 			return min;
@@ -175,7 +167,6 @@ public class RandomUtil {
 		return (long) (min + ((max - min) * random.nextDouble()));
 	}
 
-	///////// Double //////
 	/**
 	 * 返回0-之间的double
 	 */
@@ -218,7 +209,7 @@ public class RandomUtil {
 	 */
 	public static double nextDouble(Random random, final double min, final double max) {
 		Validate.isTrue(max >= min, "Start value must be smaller or equal to end value.");
-		MoreValidate.nonNegative("min", min);
+		nonNegative("min", min);
 
 		if (min == max) {
 			return min;
@@ -226,7 +217,7 @@ public class RandomUtil {
 
 		return min + ((max - min) * random.nextDouble());
 	}
-	//////////////////// String/////////
+
 
 	/**
 	 * 随机字母或数字，固定长度
@@ -311,5 +302,22 @@ public class RandomUtil {
 	 */
 	public static String randomAsciiRandomLength(Random random, int minLength, int maxLength) {
 		return RandomStringUtils.random(nextInt(random, minLength, maxLength), 32, 127, false, false, null, random);
+	}
+
+	private static Long nonNegative( String role, Long x) {
+		if (x.longValue() < 0) {
+			throw new IllegalArgumentException(role + " (" + x + ") must be >= 0");
+		}
+		return x;
+	}
+
+	/**
+	 * 校验为正数则返回该数字，否则抛出异常.
+	 */
+	private static double nonNegative( String role, double x) {
+		if (!(x >= 0)) { // not x < 0, to work with NaN.
+			throw new IllegalArgumentException(role + " (" + x + ") must be >= 0");
+		}
+		return x;
 	}
 }

@@ -8,13 +8,11 @@ package com.delicacy.oatmeal.common.util.collection;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Ordering;
-import com.delicacy.oatmeal.common.util.collection.type.Pair;
 
 /**
  * 通用Collection的工具集
@@ -107,46 +105,6 @@ public class CollectionUtil {
 	 */
 	public static <T> T max(Collection<? extends T> coll, Comparator<? super T> comp) {
 		return Collections.max(coll, comp);
-	}
-
-	/**
-	 * 返回无序集合中的最小值和最大值，使用元素默认排序
-	 */
-	public static <T extends Object & Comparable<? super T>> Pair<T, T> minAndMax(Collection<? extends T> coll) {
-		Iterator<? extends T> i = coll.iterator();
-		T minCandidate = i.next();
-		T maxCandidate = minCandidate;
-
-		while (i.hasNext()) {
-			T next = i.next();
-			if (next.compareTo(minCandidate) < 0) {
-				minCandidate = next;
-			} else if (next.compareTo(maxCandidate) > 0) {
-				maxCandidate = next;
-			}
-		}
-		return Pair.of(minCandidate, maxCandidate);
-	}
-
-	/**
-	 * 返回无序集合中的最小值和最大值
-	 */
-	public static <T> Pair<T, T> minAndMax(Collection<? extends T> coll, Comparator<? super T> comp) {
-
-		Iterator<? extends T> i = coll.iterator();
-		T minCandidate = i.next();
-		T maxCandidate = minCandidate;
-
-		while (i.hasNext()) {
-			T next = i.next();
-			if (comp.compare(next, minCandidate) < 0) {
-				minCandidate = next;
-			} else if (comp.compare(next, maxCandidate) > 0) {
-				maxCandidate = next;
-			}
-		}
-
-		return Pair.of(minCandidate, maxCandidate);
 	}
 
 	/**

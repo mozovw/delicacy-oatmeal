@@ -3,11 +3,11 @@ package com.delicacy.oatmeal.common.util.io;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
-import com.delicacy.oatmeal.common.util.text.Charsets;
 import com.google.common.io.Resources;
 import com.delicacy.oatmeal.common.util.collection.ListUtil;
 import com.delicacy.oatmeal.common.util.reflect.ClassUtil;
@@ -35,6 +35,9 @@ import com.delicacy.oatmeal.common.util.reflect.ClassUtil;
  * 如果有多个同名资源，除非调用getResources()获取全部资源，否则在URLClassLoader中按ClassPath顺序打开第一个命中的Jar文件.
  */
 public class ResourceUtil {
+
+	public static final Charset UTF_8 = Charset.forName("UTF-8");
+
 
 	// 打开单个文件////
 	/**
@@ -71,28 +74,28 @@ public class ResourceUtil {
 	 * 读取文件的每一行，读取规则见本类注释.
 	 */
 	public static String toString(String resourceName) throws IOException {
-		return Resources.toString(Resources.getResource(resourceName), Charsets.UTF_8);
+		return Resources.toString(Resources.getResource(resourceName), UTF_8);
 	}
 
 	/**
 	 * 读取文件的每一行，读取规则见本类注释.
 	 */
 	public static String toString(Class<?> contextClass, String resourceName) throws IOException {
-		return Resources.toString(Resources.getResource(contextClass, resourceName), Charsets.UTF_8);
+		return Resources.toString(Resources.getResource(contextClass, resourceName), UTF_8);
 	}
 
 	/**
 	 * 读取文件的每一行，读取规则见本类注释.
 	 */
 	public static List<String> toLines(String resourceName) throws IOException {
-		return Resources.readLines(Resources.getResource(resourceName), Charsets.UTF_8);
+		return Resources.readLines(Resources.getResource(resourceName), UTF_8);
 	}
 
 	/**
 	 * 读取文件的每一行，读取规则见本类注释.
 	 */
 	public static List<String> toLines(Class<?> contextClass, String resourceName) throws IOException {
-		return Resources.readLines(Resources.getResource(contextClass, resourceName), Charsets.UTF_8);
+		return Resources.readLines(Resources.getResource(contextClass, resourceName), UTF_8);
 	}
 
 	///////////// 打开所有同名文件///////
@@ -113,4 +116,6 @@ public class ResourceUtil {
 			return ListUtil.emptyList();
 		}
 	}
+
+
 }

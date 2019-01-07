@@ -11,8 +11,8 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.delicacy.oatmeal.common.util.io.type.StringBuilderWriter;
 import com.delicacy.oatmeal.common.util.text.Charsets;
+import org.apache.commons.io.output.StringBuilderWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

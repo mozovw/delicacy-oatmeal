@@ -1,23 +1,13 @@
 package com.delicacy.oatmeal.common.util.io;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Iterator;
-import java.util.List;
-
-import com.delicacy.oatmeal.common.util.base.Platforms;
 import com.delicacy.oatmeal.common.util.text.Charsets;
+import com.google.common.io.Files;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 
-import com.google.common.io.Files;
+import java.io.*;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * 关于文件的工具集
@@ -32,9 +22,6 @@ import com.google.common.io.Files;
  */
 public class FileUtil {
 	
-	
-
-	//////// 文件读写//////
 
 	/**
 	 * 读取文件到byte[].
@@ -330,12 +317,14 @@ public class FileUtil {
 		return StringUtils.isBlank(filePath) ? null : new File(filePath);
 	}
 
+	public static final char FILE_PATH_SEPARATOR_CHAR = File.separatorChar;
+
 	/**
 	 * 获取文件名(不包含路径)
 	 */
 	public static String getFileName( String fullName) {
 		Validate.notEmpty(fullName);
-		int last = fullName.lastIndexOf(Platforms.FILE_PATH_SEPARATOR_CHAR);
+		int last = fullName.lastIndexOf(FILE_PATH_SEPARATOR_CHAR);
 		return fullName.substring(last + 1);
 	}
 

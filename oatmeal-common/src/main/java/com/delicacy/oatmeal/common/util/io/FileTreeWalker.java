@@ -142,4 +142,13 @@ public class FileTreeWalker {
 			return input.isFile() && WildcardMatcher.matchPath(input.getAbsolutePath(), pattern);
 		}
 	}
+
+	public static void main(String[] args) {
+		System.out.println(listAll(new File("F:\\tools\\bat")));
+		System.out.println(listFile(new File("F:\\tools\\bat")));
+		System.out.println(listFileWithAntPath(new File("F:\\tools\\bat"),"*.rar"));
+		System.out.println(listFileWithRegexFileName(new File("F:\\tools\\bat"),"^.*www.*$"));
+		System.out.println(listFileWithExtension(new File("F:\\tools\\bat"),"rar" ));
+
+	}
 }
