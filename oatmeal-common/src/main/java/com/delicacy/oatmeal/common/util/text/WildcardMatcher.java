@@ -25,8 +25,9 @@
 
 package com.delicacy.oatmeal.common.util.text;
 
-import com.delicacy.oatmeal.common.util.base.Platforms;
 import org.apache.commons.lang3.StringUtils;
+
+import java.io.File;
 
 /**
  * 
@@ -165,9 +166,10 @@ public class WildcardMatcher {
 	 * Matches path against pattern using *, ? and ** wildcards. Both path and the pattern are tokenized on path
 	 * separators (both \ and /). '**' represents deep tree wildcard, as in Ant.
 	 */
+	public static final char FILE_PATH_SEPARATOR_CHAR = File.separatorChar;
 	public static boolean matchPath(String path, String pattern) {
-		String[] pathElements = StringUtils.split(path, Platforms.FILE_PATH_SEPARATOR_CHAR);
-		String[] patternElements = StringUtils.split(pattern, Platforms.FILE_PATH_SEPARATOR_CHAR);
+		String[] pathElements = StringUtils.split(path, FILE_PATH_SEPARATOR_CHAR);
+		String[] patternElements = StringUtils.split(pattern, FILE_PATH_SEPARATOR_CHAR);
 		return matchTokens(pathElements, patternElements);
 	}
 
