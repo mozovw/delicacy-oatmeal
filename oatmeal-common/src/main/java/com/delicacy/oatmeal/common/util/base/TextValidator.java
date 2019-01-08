@@ -1,9 +1,8 @@
-package com.delicacy.oatmeal.common.util.text;
-
-import java.util.regex.Pattern;
+package com.delicacy.oatmeal.common.util.base;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.regex.Pattern;
 
 
 /**

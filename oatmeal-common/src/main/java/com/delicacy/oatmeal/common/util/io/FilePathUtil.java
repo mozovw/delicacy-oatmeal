@@ -1,6 +1,5 @@
 package com.delicacy.oatmeal.common.util.io;
 
-import com.delicacy.oatmeal.common.util.text.MoreStringUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
@@ -39,7 +38,7 @@ public class FilePathUtil {
         }
 
         String contactName;
-        if (MoreStringUtil.endWith(baseName, FILE_PATH_SEPARATOR_CHAR)) {
+        if (endWith(baseName, FILE_PATH_SEPARATOR_CHAR)) {
             contactName = baseName + appendName[0];
         } else {
             contactName = baseName + FILE_PATH_SEPARATOR_CHAR + appendName[0];
@@ -54,6 +53,13 @@ public class FilePathUtil {
         return contactName;
     }
 
+     static boolean endWith( CharSequence s, char c) {
+        if (StringUtils.isEmpty(s)) {
+            return false;
+        }
+        return s.charAt(s.length() - 1) == c;
+    }
+
     /**
      * 获得上层目录的路径
      */
@@ -64,7 +70,7 @@ public class FilePathUtil {
             return parentPath;
         }
 
-        parentPath = MoreStringUtil.removeEnd(parentPath, FILE_PATH_SEPARATOR_CHAR);
+        parentPath = removeEnd(parentPath, FILE_PATH_SEPARATOR_CHAR);
 
         int idx = parentPath.lastIndexOf(FILE_PATH_SEPARATOR_CHAR);
         if (idx >= 0) {
@@ -74,6 +80,13 @@ public class FilePathUtil {
         }
 
         return parentPath;
+    }
+
+     static String removeEnd(final String s, final char c) {
+        if (endWith(s, c)) {
+            return s.substring(0, s.length() - 1);
+        }
+        return s;
     }
 
     /**

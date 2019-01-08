@@ -1,11 +1,12 @@
-package com.delicacy.oatmeal.common.util.time;
+package com.delicacy.oatmeal.common.util.date;
 
-import java.text.ParseException;
-import java.util.Date;
-
+import org.apache.commons.lang3.time.DateUtils;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
 
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -20,7 +21,7 @@ import org.apache.commons.lang3.time.FastDateFormat;
  * 3. 打印时间间隔，如"01:10:10"，以及用户友好的版本，比如"刚刚"，"10分钟前"
  * 
  * @see FastDateFormat#parse(String)
- * @see FastDateFormat#format(java.util.Date)
+ * @see FastDateFormat#format(Date)
  * @see FastDateFormat#format(long)
  * 
  * @author calvin
@@ -46,7 +47,13 @@ public class DateFormatUtil {
 	// 以空格分隔日期和时间，不带时区信息
 	public static final FastDateFormat DEFAULT_FORMAT = FastDateFormat.getInstance(PATTERN_DEFAULT);
 	public static final FastDateFormat DEFAULT_ON_SECOND_FORMAT = FastDateFormat.getInstance(PATTERN_DEFAULT_ON_SECOND);
+	public static final long MILLIS_PER_SECOND = 1000; // Number of milliseconds in a standard second.
 
+	public static final long MILLIS_PER_MINUTE = 60 * MILLIS_PER_SECOND; // Number of milliseconds in a standard minute.
+
+	public static final long MILLIS_PER_HOUR = 60 * MILLIS_PER_MINUTE; // Number of milliseconds in a standard hour.
+
+	public static final long MILLIS_PER_DAY = 24 * MILLIS_PER_HOUR; // Number of milliseconds in a standard day.
 	/**
 	 * 分析日期字符串, 仅用于pattern不固定的情况.
 	 * 
@@ -133,25 +140,26 @@ public class DateFormatUtil {
 	 * from AndroidUtilCode
 	 */
 	public static String formatFriendlyTimeSpanByNow(long timeStampMillis) {
-		long now = ClockUtil.currentTimeMillis();
+		long now = System.currentTimeMillis();
 		long span = now - timeStampMillis;
 		if (span < 0) {
 			// 'c' 日期和时间，被格式化为 "%ta %tb %td %tT %tZ %tY"，例如 "Sun Jul 20 16:17:00 EDT 1969"。
 			return String.format("%tc", timeStampMillis);
 		}
-		if (span < DateUtil.MILLIS_PER_SECOND) {
+		if (span < MILLIS_PER_SECOND) {
 			return "刚刚";
-		} else if (span < DateUtil.MILLIS_PER_MINUTE) {
-			return String.format("%d秒前", span / DateUtil.MILLIS_PER_SECOND);
-		} else if (span < DateUtil.MILLIS_PER_HOUR) {
-			return String.format("%d分钟前", span / DateUtil.MILLIS_PER_MINUTE);
+		} else if (span < MILLIS_PER_MINUTE) {
+			return String.format("%d秒前", span / MILLIS_PER_SECOND);
+		} else if (span < MILLIS_PER_HOUR) {
+			return String.format("%d分钟前", span / MILLIS_PER_MINUTE);
 		}
+
 		// 获取当天00:00
-		long wee = DateUtil.beginOfDate(new Date(now)).getTime();
+		long wee = DateUtils.truncate(new Date(now), Calendar.DATE).getTime();
 		if (timeStampMillis >= wee) {
 			// 'R' 24 小时制的时间，被格式化为 "%tH:%tM"
 			return String.format("今天%tR", timeStampMillis);
-		} else if (timeStampMillis >= wee - DateUtil.MILLIS_PER_DAY) {
+		} else if (timeStampMillis >= wee - MILLIS_PER_DAY) {
 			return String.format("昨天%tR", timeStampMillis);
 		} else {
 			// 'F' ISO 8601 格式的完整日期，被格式化为 "%tY-%tm-%td"。

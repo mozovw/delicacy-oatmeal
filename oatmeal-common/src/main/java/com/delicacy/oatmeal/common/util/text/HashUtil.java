@@ -7,6 +7,7 @@ package com.delicacy.oatmeal.common.util.text;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -38,6 +39,9 @@ import com.google.common.hash.Hashing;
 public class HashUtil {
 
 	public static final int MURMUR_SEED = 1318007700;
+
+	public static final Charset UTF_8 = Charset.forName("UTF-8");
+
 
 	// ThreadLocal重用MessageDigest
 	private static ThreadLocal<MessageDigest> createThreadLocalMessageDigest(final String digest) {
@@ -71,7 +75,7 @@ public class HashUtil {
 	 * 对输入字符串进行sha1散列, 编码默认为UTF8.
 	 */
 	public static byte[] sha1( String input) {
-		return digest(input.getBytes(Charsets.UTF_8), get(SHA_1_DIGEST), null, 1);
+		return digest(input.getBytes(UTF_8), get(SHA_1_DIGEST), null, 1);
 	}
 
 	/**
@@ -85,9 +89,10 @@ public class HashUtil {
 	 * 对输入字符串进行sha1散列，带salt达到更高的安全性.
 	 */
 	public static byte[] sha1( String input,  byte[] salt) {
-		return digest(input.getBytes(Charsets.UTF_8), get(SHA_1_DIGEST), salt, 1);
+		return digest(input.getBytes(UTF_8), get(SHA_1_DIGEST), salt, 1);
 	}
 
+	
 	/**
 	 * 对输入字符串进行sha1散列，带salt而且迭代达到更高更高的安全性.
 	 * 
@@ -103,7 +108,7 @@ public class HashUtil {
 	 * @see #generateSalt(int)
 	 */
 	public static byte[] sha1( String input,  byte[] salt, int iterations) {
-		return digest(input.getBytes(Charsets.UTF_8), get(SHA_1_DIGEST), salt, iterations);
+		return digest(input.getBytes(UTF_8), get(SHA_1_DIGEST), salt, iterations);
 	}
 
 	private static MessageDigest get(ThreadLocal<MessageDigest> messageDigest) {
@@ -181,7 +186,7 @@ public class HashUtil {
 	 * Guava也有crc32实现, 但返回值无法返回long，所以统一使用JDK默认实现
 	 */
 	public static int crc32AsInt( String input) {
-		return crc32AsInt(input.getBytes(Charsets.UTF_8));
+		return crc32AsInt(input.getBytes(UTF_8));
 	}
 
 	/**
@@ -202,7 +207,7 @@ public class HashUtil {
 	 * Guava也有crc32实现, 但返回值无法返回long，所以统一使用JDK默认实现
 	 */
 	public static long crc32AsLong( String input) {
-		return crc32AsLong(input.getBytes(Charsets.UTF_8));
+		return crc32AsLong(input.getBytes(UTF_8));
 	}
 
 	/**
@@ -228,7 +233,7 @@ public class HashUtil {
 	 * 对输入字符串进行murmur32散列, 返回值可能是负数
 	 */
 	public static int murmur32AsInt( String input) {
-		return Hashing.murmur3_32(MURMUR_SEED).hashString(input, Charsets.UTF_8).asInt();
+		return Hashing.murmur3_32(MURMUR_SEED).hashString(input, UTF_8).asInt();
 	}
 
 	/**
@@ -242,6 +247,6 @@ public class HashUtil {
 	 * 对输入字符串进行murmur128散列, 返回值可能是负数
 	 */
 	public static long murmur128AsLong( String input) {
-		return Hashing.murmur3_128(MURMUR_SEED).hashString(input, Charsets.UTF_8).asLong();
+		return Hashing.murmur3_128(MURMUR_SEED).hashString(input, UTF_8).asLong();
 	}
 }

@@ -8,7 +8,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author yangzhilong
  *
  */
-public class DesensitizationUtils {
+public class DesensitizationUtil {
 	/**
      * 脱敏用户名
      * 
@@ -89,7 +89,7 @@ public class DesensitizationUtils {
     /**
      * 脱敏身份证号
      * 
-     * @param cardNo
+     * @param idcardNo
      * @return
      */
     public static String desensitizationIdcardNo(String idcardNo){

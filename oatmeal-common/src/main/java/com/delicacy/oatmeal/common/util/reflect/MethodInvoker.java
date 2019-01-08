@@ -1,52 +1,64 @@
 package com.delicacy.oatmeal.common.util.reflect;
 
-import java.lang.reflect.Method;
 
-import com.delicacy.oatmeal.common.util.base.ExceptionUtil;
+import java.lang.reflect.Method;
 
 public class MethodInvoker {
 
-	private final Method method;
+    private final Method method;
 
-	public static MethodInvoker createMethod(final Class<?> clz, final String methodName, Class<?>... parameterTypes) {
-		Method method = ClassUtil.getAccessibleMethod(clz, methodName, parameterTypes);
-		if (method == null) {
-			throw new IllegalArgumentException("Could not find method [" + methodName + "] on target [" + clz + ']');
-		}
-		return new MethodInvoker(method);
-	}
+    protected MethodInvoker(Method method) {
+        this.method = method;
+    }
 
-	public static MethodInvoker createGetter(final Class<?> clz, final String propertyName) {
-		Method method = ClassUtil.getGetterMethod(clz, propertyName);
-		if (method == null) {
-			throw new IllegalArgumentException(
-					"Could not find getter method [" + propertyName + "] on target [" + clz + ']');
-		}
-		return new MethodInvoker(method);
-	}
+    public static MethodInvoker createMethod(final Class<?> clz, final String methodName, Class<?>... parameterTypes) {
+        Method method = ClassUtil.getAccessibleMethod(clz, methodName, parameterTypes);
+        if (method == null) {
+            throw new IllegalArgumentException("Could not find method [" + methodName + "] on target [" + clz + ']');
+        }
+        return new MethodInvoker(method);
+    }
 
-	public static MethodInvoker createSetter(final Class<?> clz, final String propertyName, Class<?> parameterType) {
-		Method method = ClassUtil.getSetterMethod(clz, propertyName, parameterType);
-		if (method == null) {
-			throw new IllegalArgumentException(
-					"Could not find getter method [" + propertyName + "] on target [" + clz + ']');
-		}
-		return new MethodInvoker(method);
-	}
+    public static MethodInvoker createGetter(final Class<?> clz, final String propertyName) {
+        Method method = ClassUtil.getGetterMethod(clz, propertyName);
+        if (method == null) {
+            throw new IllegalArgumentException(
+                    "Could not find getter method [" + propertyName + "] on target [" + clz + ']');
+        }
+        return new MethodInvoker(method);
+    }
 
-	protected MethodInvoker(Method method) {
-		this.method = method;
-	}
+    public static MethodInvoker createSetter(final Class<?> clz, final String propertyName, Class<?> parameterType) {
+        Method method = ClassUtil.getSetterMethod(clz, propertyName, parameterType);
+        if (method == null) {
+            throw new IllegalArgumentException(
+                    "Could not find getter method [" + propertyName + "] on target [" + clz + ']');
+        }
+        return new MethodInvoker(method);
+    }
 
-	/**
-	 * 调用已准备好的Method
-	 */
-	public <T> T invoke(final Object obj, Object... args) {
-		try {
-			return (T) method.invoke(obj, args);
-		} catch (Exception e) {
-			throw ExceptionUtil.uncheckedAndWrap(e);
-		}
-	}
+    /**
+     * 调用已准备好的Method
+     */
+    public <T> T invoke(final Object obj, Object... args) {
+        try {
+            return (T) method.invoke(obj, args);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void main(String[] args) {
+        MethodInvoker methodInvoker =MethodInvoker.createGetter(User.class, "name");
+        Object invoke = methodInvoker.invoke(new User());
+        System.out.println(invoke);
+    }
+
+    static class User{
+       private String name="aa";
+       public String getName(){return this.name;}
+    }
+
+
 
 }

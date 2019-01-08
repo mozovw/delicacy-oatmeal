@@ -1,11 +1,11 @@
 package com.delicacy.oatmeal.common.util.io;
 
-import com.delicacy.oatmeal.common.util.text.Charsets;
 import com.google.common.io.Files;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 
 import java.io.*;
+import java.nio.charset.Charset;
 import java.util.Iterator;
 import java.util.List;
 
@@ -21,7 +21,10 @@ import java.util.List;
  * @author calvin
  */
 public class FileUtil {
-	
+
+	public static final Charset UTF_8 = Charset.forName("UTF-8");
+
+
 
 	/**
 	 * 读取文件到byte[].
@@ -34,28 +37,28 @@ public class FileUtil {
 	 * 读取文件到String.
 	 */
 	public static String toString(final File file) throws IOException {
-		return Files.toString(file, Charsets.UTF_8);
+		return Files.toString(file, UTF_8);
 	}
 
 	/**
 	 * 读取文件的每行内容到List<String>
 	 */
 	public static List<String> toLines(final File file) throws IOException {
-		return Files.readLines(file, Charsets.UTF_8);
+		return Files.readLines(file, UTF_8);
 	}
 
 	/**
 	 * 简单写入String到File.
 	 */
 	public static void write(final CharSequence data, final File file) throws IOException {
-		Files.write(data, file, Charsets.UTF_8);
+		Files.write(data, file, UTF_8);
 	}
 
 	/**
 	 * 追加String到File.
 	 */
 	public static void append(final CharSequence from, final File to) throws IOException {
-		Files.append(from, to, Charsets.UTF_8);
+		Files.append(from, to, UTF_8);
 	}
 
 	/**
@@ -90,14 +93,14 @@ public class FileUtil {
 	 * 获取File的BufferedReader
 	 */
 	public static BufferedReader asBufferedReader(String fileName) throws FileNotFoundException {
-		return Files.newReader(getFileByPath(fileName), Charsets.UTF_8);
+		return Files.newReader(getFileByPath(fileName), UTF_8);
 	}
 
 	/**
 	 * 获取File的BufferedWriter
 	 */
 	public static BufferedWriter asBufferedWriter(String fileName) throws FileNotFoundException {
-		return Files.newWriter(getFileByPath(fileName), Charsets.UTF_8);
+		return Files.newWriter(getFileByPath(fileName), UTF_8);
 	}
 
 	///// 文件操作 /////

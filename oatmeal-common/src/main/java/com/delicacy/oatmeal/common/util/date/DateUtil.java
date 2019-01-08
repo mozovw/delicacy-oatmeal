@@ -177,7 +177,7 @@ public class DateUtil {
 	/**
 	 * @Title:getSpecifiedOffsetDate
 	 * @Description: 得到与指定日期偏移量为X的日期。
-	 * @param specifiedDate指定的日期
+	 * @param specifiedDate 指定的日期
 	 *            ,格式为YYYY-MM-DD
 	 * @param offset
 	 * @return 返回yyyy-MM-dd格式的字符串日期

@@ -1,12 +1,12 @@
 package com.delicacy.oatmeal.common.util.net;
 
-import com.delicacy.oatmeal.common.util.text.MoreStringUtil;
 import com.google.common.net.InetAddresses;
 import com.google.common.primitives.Ints;
 
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -110,7 +110,7 @@ public class IPUtil {
             return null;
         }
 
-        List<String> it = MoreStringUtil.split(ipv4Str, '.', 4);
+        List<String> it = split(ipv4Str, '.', 4);
         if (it.size() != 4) {
             return null;
         }
@@ -124,6 +124,36 @@ public class IPUtil {
             byteAddress[i] = (byte) tempInt;
         }
         return byteAddress;
+    }
+
+    private static List<String> split(final String str, final char separatorChar, int expectParts) {
+        if (str == null) {
+            return null;
+        }
+        final int len = str.length();
+        if (len == 0) {
+            return new ArrayList<>();
+        }
+        final List<String> list = new ArrayList<String>(expectParts);
+        int i = 0;
+        int start = 0;
+        boolean match = false;
+        while (i < len) {
+            if (str.charAt(i) == separatorChar) {
+                if (match) {
+                    list.add(str.substring(start, i));
+                    match = false;
+                }
+                start = ++i;
+                continue;
+            }
+            match = true;
+            i++;
+        }
+        if (match) {
+            list.add(str.substring(start, i));
+        }
+        return list;
     }
 
     public static void main(String[] args) {

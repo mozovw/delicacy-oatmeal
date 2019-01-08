@@ -20,6 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.SpringServletContainerInitializer;
 
 /**
  * 获取Class信息的工具类
@@ -34,7 +35,6 @@ import org.slf4j.LoggerFactory;
  * 
  * 5. 其他杂项
  * 
- * @author calvin
  */
 public class ClassUtil {
 
@@ -59,7 +59,6 @@ public class ClassUtil {
 	private static final String GETTER_PREFIX = "get";
 	private static final String IS_PREFIX = "is";
 
-	////////// shortClassName 和 packageName//////////
 	/**
 	 * 返回Class名, 不包含PackageName.
 	 * 
@@ -92,7 +91,6 @@ public class ClassUtil {
 		return ClassUtils.getPackageName(className);
 	}
 
-	////////// 获取全部父类，全部接口，以及全部Annotation//////////
 	/**
 	 * 递归返回所有的SupperClasses，包含Object.class
 	 */
@@ -142,7 +140,6 @@ public class ClassUtil {
 		}
 	}
 
-	//// 获取标注了annotation的所有属性和方法////////
 
 	/**
 	 * 找出所有标注了该annotation的公共属性，循环遍历父类.
@@ -237,7 +234,6 @@ public class ClassUtil {
 		return false;
 	}
 
-	///////// 获取方法////
 	/**
 	 * 循环遍历，按属性名获取前缀为get或is的函数，并设为可访问
 	 */
@@ -373,7 +369,6 @@ public class ClassUtil {
 		}
 	}
 
-	/////////// 杂项 /////////
 	/**
 	 * From Spring, 按顺序获取默认ClassLoader
 	 * 
@@ -484,6 +479,12 @@ public class ClassUtil {
 			// Class or one of its dependencies is not present...
 			return false;
 		}
+	}
+
+	public static void main(String[] args) {
+		System.out.println(getAllAnnotations(SpringServletContainerInitializer.class));
+		System.out.println(getAllInterfaces(SpringServletContainerInitializer.class));
+		System.out.println(getAllSuperclasses(SpringServletContainerInitializer.class));
 	}
 
 }

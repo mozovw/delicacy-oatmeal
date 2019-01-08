@@ -8,10 +8,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.io.Writer;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.delicacy.oatmeal.common.util.text.Charsets;
 import org.apache.commons.io.output.StringBuilderWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,6 +41,7 @@ public class IOUtil {
 	private static final int EOF = -1;
 
 	private static final String CLOSE_ERROR_MESSAGE = "IOException thrown while closing Closeable.";
+	public static final Charset UTF_8 = Charset.forName("UTF-8");
 
 	/**
 	 * 在final中安静的关闭, 不再往外抛出异常避免影响原有异常，最常用函数. 同时兼容Closeable为空未实际创建的情况.
@@ -59,7 +60,7 @@ public class IOUtil {
 	 * 简单读取InputStream到String.
 	 */
 	public static String toString(InputStream input) throws IOException {
-		InputStreamReader reader = new InputStreamReader(input, Charsets.UTF_8);
+		InputStreamReader reader = new InputStreamReader(input, UTF_8);
 		return toString(reader);
 	}
 
@@ -77,7 +78,7 @@ public class IOUtil {
 	 * 简单读取Reader的每行内容到List<String>
 	 */
 	public static List<String> toLines(final InputStream input) throws IOException {
-		return toLines(new InputStreamReader(input, Charsets.UTF_8));
+		return toLines(new InputStreamReader(input, UTF_8));
 	}
 
 	/**
@@ -99,7 +100,7 @@ public class IOUtil {
 	 */
 	public static void write(final String data, final OutputStream output) throws IOException {
 		if (data != null) {
-			output.write(data.getBytes(Charsets.UTF_8));
+			output.write(data.getBytes(UTF_8));
 		}
 	}
 

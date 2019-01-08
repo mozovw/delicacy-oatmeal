@@ -26,7 +26,7 @@ public class EscapeUtil {
 	 */
 	public static String urlEncode(String part) {
 		try {
-			return URLEncoder.encode(part, Charsets.UTF_8_NAME);
+			return URLEncoder.encode(part, "UTF-8");
 		} catch (UnsupportedEncodingException ignored) {
 			return null;
 		}
@@ -37,7 +37,7 @@ public class EscapeUtil {
 	 */
 	public static String urlDecode(String part) {
 		try {
-			return URLDecoder.decode(part, Charsets.UTF_8_NAME);
+			return URLDecoder.decode(part, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			return null;
 		}
