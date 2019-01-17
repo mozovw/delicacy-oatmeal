@@ -11,7 +11,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import com.alibaba.fastjson.support.spring.GenericFastJsonRedisSerializer;
 import com.delicacy.oatmeal.redis.cache.DistributedCache;
 import com.delicacy.oatmeal.redis.cache.SpringDataRedisCache;
-import com.delicacy.oatmeal.redis.utils.RedisCacheUtil;
+import com.delicacy.oatmeal.redis.util.RedisCacheUtil;
 
 import redis.clients.jedis.Jedis;
 

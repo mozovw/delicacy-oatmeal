@@ -1,4 +1,4 @@
-package com.delicacy.oatmeal.redis.utils;
+package com.delicacy.oatmeal.redis.util;
 
 import java.util.ArrayList;
 import java.util.Collection;

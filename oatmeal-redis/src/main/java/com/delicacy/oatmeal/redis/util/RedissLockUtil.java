@@ -1,4 +1,4 @@
-package com.delicacy.oatmeal.redis.utils;
+package com.delicacy.oatmeal.redis.util;
 
 import java.util.concurrent.TimeUnit;
 
@@ -31,7 +31,7 @@ public class RedissLockUtil {
 	 * @param timeout 超时时间   单位：秒
 	 */
 	public static void lock(String lockKey, int timeout) {
-		redissLock.lock(lockKey, timeout);
+		lock(lockKey,TimeUnit.SECONDS, timeout);
 	}
 	
 	/**
@@ -42,5 +42,38 @@ public class RedissLockUtil {
 	 */
 	public static void lock(String lockKey, TimeUnit unit ,int timeout) {
 		redissLock.lock(lockKey, unit, timeout);
+	}
+
+	/**
+	 * 尝试获取锁
+	 * @param lockKey
+	 * @param unit
+	 * @param waitTime
+	 * @param leaseTime
+	 * @return
+	 */
+	public static boolean tryLock(String lockKey, TimeUnit unit ,int waitTime,int leaseTime) {
+		return redissLock.tryLock(lockKey, unit, waitTime,leaseTime);
+	}
+
+	/**
+	 * 尝试获取锁
+	 * @param lockKey
+	 * @param waitTime
+	 * @param leaseTime
+	 * @return
+	 */
+	public static boolean tryLock(String lockKey,int waitTime,int leaseTime) {
+		return tryLock(lockKey, TimeUnit.SECONDS , waitTime, leaseTime);
+	}
+
+	/**
+	 * 尝试获取锁
+	 * @param lockKey
+	 * @param leaseTime
+	 * @return
+	 */
+	public static boolean tryLock(String lockKey,int leaseTime) {
+		return tryLock(lockKey , leaseTime, leaseTime);
 	}
 }

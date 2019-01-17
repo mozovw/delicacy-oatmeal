@@ -15,7 +15,7 @@ import org.springframework.util.StringUtils;
 import com.delicacy.oatmeal.redis.lock.DistributedLocker;
 import com.delicacy.oatmeal.redis.lock.RedissonDistributedLocker;
 import com.delicacy.oatmeal.redis.lock.RedissonProperties;
-import com.delicacy.oatmeal.redis.utils.RedissLockUtil;
+import com.delicacy.oatmeal.redis.util.RedissLockUtil;
 
 @Configuration
 @ConditionalOnClass(Config.class)
@@ -35,7 +35,8 @@ public class RedissonAutoConfiguration {
 		Config config = new Config();
 		SentinelServersConfig serverConfig = config.useSentinelServers()
 				.addSentinelAddress(redssionProperties.getSentinelAddresses())
-				.setMasterName(redssionProperties.getMasterName()).setTimeout(redssionProperties.getTimeout())
+				.setMasterName(redssionProperties.getMasterName())
+				.setTimeout(redssionProperties.getTimeout())
 				.setMasterConnectionPoolSize(redssionProperties.getMasterConnectionPoolSize())
 				.setSlaveConnectionPoolSize(redssionProperties.getSlaveConnectionPoolSize());
 
@@ -62,7 +63,6 @@ public class RedissonAutoConfiguration {
 		if (!StringUtils.isEmpty(redssionProperties.getPassword())) {
 			serverConfig.setPassword(redssionProperties.getPassword());
 		}
-
 		return Redisson.create(config);
 	}
 
