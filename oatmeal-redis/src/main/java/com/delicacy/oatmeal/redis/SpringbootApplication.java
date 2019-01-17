@@ -57,20 +57,22 @@ public class SpringbootApplication {
 		RLock redLock = redissonClient.getLock("REDLOCK_KEY");
 		boolean tryLock = false;
 		try {
-//			tryLock = redLock.tryLock(2,5, TimeUnit.SECONDS);
-//			if (!tryLock) return message;
-			redLock.lock(2,TimeUnit.SECONDS);
-			StopWatch stopWatch = new StopWatch();
-			stopWatch.start();
-			System.out.println(Thread.currentThread().getName());
-			countdown(5);
-			stopWatch.stop();
-			double totalTimeSeconds = stopWatch.getTotalTimeSeconds();
-			System.out.println(totalTimeSeconds);
-			return "success";
+			tryLock = redLock.tryLock(2,5, TimeUnit.SECONDS);
+			if (tryLock) {
+				//redLock.lock(2,TimeUnit.SECONDS);
+				StopWatch stopWatch = new StopWatch();
+				stopWatch.start();
+				countdown(5);
+				stopWatch.stop();
+				double totalTimeSeconds = stopWatch.getTotalTimeSeconds();
+				System.out.println(Thread.currentThread().getName() + "----" + totalTimeSeconds);
+				return "success";
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
+			if (redLock.isLocked())
+				if(redLock.isHeldByCurrentThread())
 			redLock.unlock();
 		}
 		return message;

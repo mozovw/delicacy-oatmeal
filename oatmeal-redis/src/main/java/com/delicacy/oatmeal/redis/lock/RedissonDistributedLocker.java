@@ -21,6 +21,7 @@ public class RedissonDistributedLocker implements DistributedLocker {
 		if (redissonClient.isShutdown())return;
 		RLock lock = redissonClient.getLock(entityId);
 		if (lock.isLocked())
+			if(lock.isHeldByCurrentThread())
 		lock.unlock();
 	}
 
