@@ -6,13 +6,11 @@ import java.io.*;
 /***
  * 下载文件工具类
  */
-
 public class DownLoadUtil {
     private static final String CONTENT_TYPE = "application/x-msdownload";
 
 
     public static boolean downLoadFile(HttpServletResponse response, String filename, File file) {
-        boolean result = true;
         FileInputStream input = null;
         OutputStream out = null;
         try {
@@ -35,14 +33,12 @@ public class DownLoadUtil {
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
-                    result = false;
                 }
+                return true;
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
-            result = false;
         } catch (IOException e) {
-            result = false;
             e.printStackTrace();
         } finally {
             if (input != null) {
@@ -50,7 +46,6 @@ public class DownLoadUtil {
                     input.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    result = false;
                 }
             }
             if (out != null) {
@@ -59,11 +54,10 @@ public class DownLoadUtil {
                     out.close();//关闭输出流
                 } catch (IOException e) {
                     e.printStackTrace();
-                    result = false;
                 }
             }
 
         }
-        return result;
+        return false;
     }
 }

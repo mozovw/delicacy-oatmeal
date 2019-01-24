@@ -18,7 +18,6 @@ import org.jeecgframework.poi.word.entity.WordImageEntity;
 import org.jeecgframework.poi.word.entity.params.ExcelListEntity;
 import org.junit.Test;
 
-import com.delicacy.oatmeal.easypoi.excel.util.entity.*;
 
 
 
@@ -56,7 +55,7 @@ public class WordExportUtilTest  {
 		try {
 			XWPFDocument doc = WordExportUtil
 					.exportWord07(
-							"com/delicacy/oatmeal/easypoi/word/utils/wordexport_contract.docx",
+							"com/delicacy/oatmeal/easypoi/word/util/wordexport_contract.docx",
 							map);
 			FileOutputStream fos = new FileOutputStream(
 					"src/test/resources/com/delicacy/oatmeal/easypoi/word/util/wordexport_contract_2.docx");
@@ -110,7 +109,7 @@ public class WordExportUtilTest  {
 		try {
 			XWPFDocument doc = WordExportUtil
 					.exportWord07(
-							"com/delicacy/oatmeal/easypoi/word/utils/wordexport_excel.docx",
+							"com/delicacy/oatmeal/easypoi/word/util/wordexport_excel.docx",
 							map);
 			FileOutputStream fos = new FileOutputStream(
 					"src/test/resources/com/delicacy/oatmeal/easypoi/word/util/wordexport_excel_2.docx");
@@ -135,13 +134,13 @@ public class WordExportUtilTest  {
 		WordImageEntity image = new WordImageEntity();
 		image.setHeight(200);
 		image.setWidth(500);
-		image.setUrl("com/delicacy/oatmeal/easypoi/word/utils/testCode.png");
+		image.setUrl("com/delicacy/oatmeal/easypoi/word/util/testCode.png");
 		image.setType(WordImageEntity.URL);
 		map.put("testCode", image);
 		try {
 			XWPFDocument doc = WordExportUtil
 					.exportWord07(
-							"com/delicacy/oatmeal/easypoi/word/utils/wordexport_image.docx",
+							"com/delicacy/oatmeal/easypoi/word/util/wordexport_image.docx",
 							map);
 			FileOutputStream fos = new FileOutputStream(
 					"src/test/resources/com/delicacy/oatmeal/easypoi/word/util/wordexport_image_2.docx");
@@ -212,7 +211,7 @@ public class WordExportUtilTest  {
 		map.put("pList", list);
 		try {
 			XWPFDocument doc = WordExportUtil.exportWord07(
-					"com/delicacy/oatmeal/easypoi/word/utils/workexport_map.docx",
+					"com/delicacy/oatmeal/easypoi/word/util/workexport_map.docx",
 					map);
 			FileOutputStream fos = new FileOutputStream(
 					"src/test/resources/com/delicacy/oatmeal/easypoi/word/util/workexport_map_2.docx");

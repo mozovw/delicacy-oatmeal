@@ -1,5 +1,8 @@
 package com.delicacy.oatmeal.common.util.bean;
 
+import org.apache.commons.lang3.StringUtils;
+import org.junit.Assert;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
@@ -35,6 +38,39 @@ public class BeanHandler {
                         e.printStackTrace();
                     }
                 }
+            }
+        }
+    }
+
+    /**
+     * 选择性复制（from对象有属性即覆盖to对象，目的为了将null复制给to对象）
+     * @param from
+     * @param to
+     * @param ignoreString //忽略的字段
+     * @param <T>
+     */
+    public static <T> void optCopy(T from, T to, String... ignoreString) {
+        Assert.assertNotNull(from);
+        Assert.assertNotNull(to);
+        Field[] fields = from.getClass().getDeclaredFields();
+        Field[] toFields = to.getClass()
+                .getDeclaredFields();
+        for (Field f : fields) {
+            f.setAccessible(true);
+            try {
+                if(StringUtils.equalsAnyIgnoreCase(f.getName(),ignoreString)){
+                    continue;
+                }
+                for (Field ff : toFields) {
+                    ff.setAccessible(true);
+                    if (ff.getName().equals(f.getName())){
+                        Object t = f.get(from);
+                        ff.set(to,t);
+                        break;
+                    }
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
             }
         }
     }
