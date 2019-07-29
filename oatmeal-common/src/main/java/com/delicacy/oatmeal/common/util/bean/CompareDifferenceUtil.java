@@ -3,6 +3,7 @@ package com.delicacy.oatmeal.common.util.bean;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.reflections.ReflectionUtils;
+import org.springframework.util.Assert;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -658,9 +659,11 @@ public class CompareDifferenceUtil {
         return s;
     }
 
+
+
     public static void main(String[] args) {
         User user = new User();
-        user.setAge(1);
+        user.setAge(2);
         user.setName("a");
         user.setCreateTime(new Date());
 
@@ -678,11 +681,12 @@ public class CompareDifferenceUtil {
         System.out.println(compare);
 
 
+
     }
 
     static class User{
         private String name;
-        private int age;
+        private Integer age;
         private Date createTime;
 
         public Date getCreateTime() {
@@ -701,11 +705,11 @@ public class CompareDifferenceUtil {
             this.name = name;
         }
 
-        public int getAge() {
+        public Integer getAge() {
             return age;
         }
 
-        public void setAge(int age) {
+        public void setAge(Integer age) {
             this.age = age;
         }
     }

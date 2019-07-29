@@ -5,12 +5,13 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
 import java.util.Base64;
+import java.util.UUID;
 
 public class PwdUtil {
 
     static private final String SECURE_KEY ="@!@#$%^123456@~!";
 
-    static private final String SECURE_IV = "~$#^@@!@#$%^&@@#";
+    static private final String SECURE_IV = "~$#^12345678&@@#";
 
 
     public static String encryptPassword(String password) throws Exception {

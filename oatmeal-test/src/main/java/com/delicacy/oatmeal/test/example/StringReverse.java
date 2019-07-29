@@ -11,12 +11,3 @@ public class StringReverse {
 	}
 }
 
-class StrExt {
-
-	public void reverse(String str, int offset, int limit) {
-		int length = str.length();
-		if (offset + limit <= length & offset < limit) {
-			str.substring(offset, offset+limit);
-		}
-	}
-}

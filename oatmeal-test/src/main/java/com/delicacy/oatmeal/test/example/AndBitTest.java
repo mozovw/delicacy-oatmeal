@@ -11,13 +11,10 @@ import com.delicacy.oatmeal.test.exam.atomic.Stopwatch;
  **/
 public class AndBitTest {
 
-
-
     public static void main(String[] args) {
         t1();
         t2();
         t1();
-
     }
 
     private static void t2() {

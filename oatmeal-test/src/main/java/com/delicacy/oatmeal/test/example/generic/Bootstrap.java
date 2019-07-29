@@ -4,6 +4,8 @@ import com.delicacy.oatmeal.test.example.generic.entity.Apple;
 import com.delicacy.oatmeal.test.example.generic.entity.Food;
 import com.delicacy.oatmeal.test.example.generic.entity.Fruit;
 
+import java.util.List;
+
 /**
  * main
  *
@@ -30,17 +32,18 @@ public class Bootstrap {
 
         //一个能放水果以及一切是水果基类的盘子
         //下界<? super T>不影响往里存，但往外取只能放在Fruit或者Object对象
-        Plate<? super Fruit> pp = new Plate<Food>(new Food());
+        Plate<? super Fruit> pp = new Plate<>(new Food());
         //Plate<? super Fruit> ppp = new Plate<Apple>(new Apple()); //error
 
         pp.set(new Fruit());
         pp.set(new Apple());
-        //我知道我比你大，但是我不知道，我比你大到什么程度
+        //我知道你比我大，但是不知道你比我达到什么程度
         //pp.set(new Food()); //error
 
         //Apple newFruit5=p.get();
         Fruit newFruit6=p.get();
         Object newFruit4=p.get();
+        Food newFruit7=p.get();
 
         /*PECS
 
