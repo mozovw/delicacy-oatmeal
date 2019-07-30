@@ -146,22 +146,22 @@ public class SuanfaTest {
         }
 
         private static void merge(int a[], int start, int mid, int end) {
-            int tmp[] = new int[end - start + 1];
+            int template[] = new int[end - start + 1];
             int i = start;
             int j = mid + 1;
             int k = 0;
             //把最小的数移入数组
             while (i <= mid && j <= end) {
-                if (a[i] <= a[j]) tmp[k++] = a[i++];
-                else tmp[k++] = a[j++];
+                if (a[i] <= a[j]) template[k++] = a[i++];
+                else template[k++] = a[j++];
             }
             //把左边余下的移入数组
-            while (i <= mid) tmp[k++] = a[i++];
+            while (i <= mid) template[k++] = a[i++];
             //把右边余下的移入数组
-            while (j <= end) tmp[k++] = a[j++];
+            while (j <= end) template[k++] = a[j++];
             //覆盖
             for (i = 0; i < k; i++) {
-                a[start + i] = tmp[i];
+                a[start + i] = template[i];
             }
         }*/
         public static void sort(int a[], int start, int end) {
@@ -262,13 +262,13 @@ public class SuanfaTest {
         }
 
         /*private void sort(int[] arr) {
-            int length = arr.length, tmp;
+            int length = arr.length, template;
             for (int i = 0; i < length - 1; i++) {
                 for (int j = i + 1; j < length; j++) {
                     if (arr[i] > arr[j]) {
-                        tmp = arr[i];
+                        template = arr[i];
                         arr[i] = arr[j];
-                        arr[j] = tmp;
+                        arr[j] = template;
                     }
                 }
             }
@@ -295,13 +295,13 @@ public class SuanfaTest {
         }
 
         /*private void sort(int[] arr) {
-            int length = arr.length, tmp, j;
+            int length = arr.length, template, j;
             for (int i = 1; i < length; i++) {
-                tmp = arr[i];
+                template = arr[i];
                 //找前面谁比它大
-                for (j = i; j > 0 && tmp < arr[j - 1]; j--)
+                for (j = i; j > 0 && template < arr[j - 1]; j--)
                     arr[j] = arr[j - 1];
-                arr[j] = tmp;
+                arr[j] = template;
             }
         }*/
 

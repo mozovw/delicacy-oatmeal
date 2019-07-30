@@ -303,10 +303,10 @@ public class FileUtil {
 	}
 
 	/**
-	 * 在临时目录创建临时文件，命名为tmp-${random.nextLong()}.tmp
+	 * 在临时目录创建临时文件，命名为tmp-${random.nextLong()}.template
 	 */
 	public static File createTempFile() throws IOException {
-		return File.createTempFile("tmp-", ".tmp");
+		return File.createTempFile("template-", ".template");
 	}
 
 	/**
