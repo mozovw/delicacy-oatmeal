@@ -8,7 +8,7 @@ import org.junit.Test;
 
 
 public class FileUtilsTest{
-	String str  = "src/test/resources/com/delicacy/oatmeal/commons/io/tt.txt";
+	String str  = "src/exam/resources/com/delicacy/oatmeal/commons/io/tt.txt";
 	@Test
 	public void test() throws IOException{
 		File file = FileUtils.getUserDirectory();

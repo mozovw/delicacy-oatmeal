@@ -146,7 +146,7 @@ public class ClassUtil {
 	 * 
 	 * 暂未支持Spring风格Annotation继承Annotation
 	 * 
-	 * from org.unitils.util.AnnotationUtils
+	 * from org.unitils.exam.AnnotationUtils
 	 */
 	public static <T extends Annotation> Set<Field> getAnnotatedPublicFields(Class<? extends Object> clazz,
 			Class<T> annotation) {
@@ -172,7 +172,7 @@ public class ClassUtil {
 	 * 
 	 * 暂未支持Spring风格Annotation继承Annotation
 	 * 
-	 * from org.unitils.util.AnnotationUtils
+	 * from org.unitils.exam.AnnotationUtils
 	 */
 	public static <T extends Annotation> Set<Field> getAnnotatedFields(Class<? extends Object> clazz,
 			Class<T> annotation) {

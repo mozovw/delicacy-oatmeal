@@ -8,9 +8,9 @@ import java.nio.channels.FileChannel;
 
 public class FileChannelDemo {
 	
-	private static final String FILEPATH_CHANNEL ="src/main/java/com/delicacy/oatmeal/test/exam/io/channel/channel.txt"; 
-	private static final String FILEPATH_FROM ="src/main/java/com/delicacy/oatmeal/test/exam/io/channel/fromFile.txt"; 
-	private static final String FILEPATH_TO ="src/main/java/com/delicacy/oatmeal/test/exam/io/channel/toFile.txt"; 
+	private static final String FILEPATH_CHANNEL ="src/main/java/com/delicacy/oatmeal/exam/exam/io/channel/channel.txt";
+	private static final String FILEPATH_FROM ="src/main/java/com/delicacy/oatmeal/exam/exam/io/channel/fromFile.txt";
+	private static final String FILEPATH_TO ="src/main/java/com/delicacy/oatmeal/exam/exam/io/channel/toFile.txt";
 	
 	public static void main(String[] args) throws IOException {
 		method1();
@@ -44,7 +44,7 @@ public class FileChannelDemo {
 	 * @throws IOException
 	 */
 	protected static void method1() throws FileNotFoundException, IOException {
-		///oatmeal-test/src/main/java/com/delicacy/oatmeal/test/exam/io/channel/channel.txt
+		///oatmeal-exam/src/main/java/com/delicacy/oatmeal/exam/exam/io/channel/channel.txt
 		RandomAccessFile aFile = new RandomAccessFile(FILEPATH_CHANNEL, "rw");
 		FileChannel inChannel = aFile.getChannel();
 		ByteBuffer buf = ByteBuffer.allocate(48);

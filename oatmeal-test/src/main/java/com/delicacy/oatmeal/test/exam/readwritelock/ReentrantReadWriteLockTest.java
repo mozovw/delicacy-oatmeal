@@ -12,13 +12,13 @@ public class ReentrantReadWriteLockTest {
 		new Thread() {
 			public void run() {
 				test.get(Thread.currentThread());
-				//test.put(Thread.currentThread());
+				//exam.put(Thread.currentThread());
 			};
 		}.start();
 
 		new Thread() {
 			public void run() {
-				//test.get(Thread.currentThread());
+				//exam.get(Thread.currentThread());
 				test.put(Thread.currentThread());
 
 			};

@@ -29,7 +29,7 @@ public class StringUtilsTest  {
 		List<String> list = new ArrayList<String>();
 		list.add("aaa");
 		list.add("bbb");
-		String path = "src/test/resources/com/delicacy/oatmeal/spring/core/tt.txt";
+		String path = "src/exam/resources/com/delicacy/oatmeal/spring/core/tt.txt";
 		System.out.println(StringUtils.getFilename(path));
 		System.out.println(StringUtils.getFilenameExtension(path));
 		System.out.println(StringUtils.stripFilenameExtension(path));

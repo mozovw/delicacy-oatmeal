@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.*;
 /**
  * PutTakeTest
  * <p/>
- * Producer-consumer test program for BoundedBuffer
+ * Producer-consumer exam program for BoundedBuffer
  *
  * @author Brian Goetz and Tim Peierls
  */

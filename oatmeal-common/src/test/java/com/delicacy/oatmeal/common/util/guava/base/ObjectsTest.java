@@ -16,7 +16,7 @@ public class ObjectsTest  {
 		Objects.equal("a", null); // returns false
 		Objects.equal(null, null); // returns true
 
-		// test distinct string objects
+		// exam distinct string objects
 		String s1 = "foobar";
 		String s2 = new String(s1);
 		assertTrue(Objects.equal(s1, s2));
