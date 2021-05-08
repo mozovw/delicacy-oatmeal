@@ -6,22 +6,18 @@
 package com.delicacy.oatmeal.test.suanfa.classic;
 
 public class ThirdNarcissusNum {
-	static int b, bb, bbb;
 
 	public static void main(String[] args) {
 
-		for (int num = 101; num < 1000; num++) {
-			ThirdNarcissusNum tnn = new ThirdNarcissusNum();
-			tnn.f(num);
-		}
+		method();
+
 	}
 
-	public void f(int m) {
-		bbb = m / 100;
-		bb = (m % 100) / 10;
-		b = (m % 100) % 10;
-		if ((bbb * bbb * bbb + bb * bb * bb + b * b * b) == m) {
-			System.out.println(m);
+
+	public static void method() {
+		for (int m = 100; m <= 10000; m++) {
+			int a = m/100,aa = m%100/10,aaa = m%100%10;
+			if (a*a*a+aa*aa*aa+aaa*aaa*aaa==m)System.out.println(m);
 		}
 	}
 }

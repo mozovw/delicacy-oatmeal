@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Twenty_fourthNumber {
 	public static void main(String[] args) {
 
-		Twenty_fourthNumber tn = new Twenty_fourthNumber();
 		Scanner s = new Scanner(System.in);
 		long a = s.nextLong();
 		String ss = String.valueOf(a);

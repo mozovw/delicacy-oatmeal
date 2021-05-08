@@ -26,20 +26,5 @@ public class TenthTreeFall {
 		System.out.println("路程：" + distance);
 		System.out.println("高度：" + height / 2);
 		
-		method2(100);
-	}
-
-	static int i = 10;
-	static double s = 0;
-	protected static void method2(double t) {
-		s+=t;
-		t= t/2;
-		s+=t;
-		if (--i == 0) {
-			System.out.println(s-t);
-			System.out.println(t);
-			return;
-		}
-		method2(t);
 	}
 }

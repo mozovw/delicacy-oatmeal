@@ -10,34 +10,28 @@ public class ObjectLockThreadDemo{
 	 */
 	private static void demo3() {
 	    final Object lock = new Object();
-	    Thread A = new Thread(new Runnable() {
-	        @Override
-	        public void run() {
-	            synchronized (lock) {
-	                System.out.println("A 1");
-	                try {
-	                    lock.wait();
-	                } catch (InterruptedException e) {
-	                    e.printStackTrace();
-	                }
-	                System.out.println("A 2");
-	                System.out.println("A 3");
-	            }
+	    Thread A = new Thread(() -> {
+			synchronized (lock) {
+				System.out.println("A 1");
+				try {
+					lock.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				System.out.println("A 2");
+				System.out.println("A 3");
+			}
+
+		});
 	
-	        }
-	    });
-	
-	    Thread B = new Thread(new Runnable() {
-	        @Override
-	        public void run() {
-	            synchronized (lock) {
-	                System.out.println("B 1");
-	                System.out.println("B 2");
-	                System.out.println("B 3");
-	                lock.notify();
-	            }
-	        }
-	    });
+	    Thread B = new Thread(() -> {
+			synchronized (lock) {
+				System.out.println("B 1");
+				System.out.println("B 2");
+				System.out.println("B 3");
+				lock.notify();
+			}
+		});
 	
 	    A.start();
 	    B.start();

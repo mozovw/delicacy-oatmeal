@@ -1,12 +1,7 @@
 package com.delicacy.oatmeal.test.exam.threadlocal;
 //
 public class ThreadLocalDemo {
-	private static ThreadLocal<String> threadLocal = new ThreadLocal<String>() {
-		@Override
-		protected String initialValue() {
-			return "hello";
-		}
-	};
+	private static ThreadLocal<String> threadLocal = ThreadLocal.withInitial(() -> "hello");
 	//ConcurrentHashMap
 	static class MyRunnable implements Runnable {
 		private int num;

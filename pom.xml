@@ -6,12 +6,10 @@
 	<modules>
 		<module>oatmeal-base</module>
 		<module>oatmeal-common</module>
-		<module>oatmeal-poi</module>
-		<module>oatmeal-idworker</module>
-		<module>oatmeal-redis</module>
 		<module>oatmeal-test</module>
+		<module>oatmeal-guava</module>
+		<module>oatmeal-guava</module>
         <module>oatmeal-java</module>
-		<module>oatmeal-validation</module>
 	</modules>
 	<groupId>com.delicacy</groupId>
     <artifactId>delicacy-oatmeal</artifactId>

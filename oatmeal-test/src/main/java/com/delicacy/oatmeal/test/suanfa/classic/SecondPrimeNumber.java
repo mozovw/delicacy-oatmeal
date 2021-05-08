@@ -9,8 +9,8 @@ public class SecondPrimeNumber {
 	public static int count = 0;
 
 	public static void main(String[] args) {
-		//method1();
-		method2(101,200);
+		method1();
+		//method2(101,200);
 	}
 	
 	protected static void method2(int i,int t) {
@@ -29,10 +29,7 @@ public class SecondPrimeNumber {
 		}
 		method2(++i,t);
 	}
-	
-	/**
-	 * 
-	 */
+
 	protected static void method1() {
 		for (int i = 101; i < 200; i++) {
 			boolean b = true;// 默认此数就素数

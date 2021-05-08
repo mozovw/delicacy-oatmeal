@@ -10,6 +10,10 @@ package com.delicacy.oatmeal.test.suanfa.classic;
 
 public class SeventeenthMonkeyPeach {
 	public static void main(String[] args) {
+		method();
+	}
+
+	private static void method() {
 		int lastdayNum = 1;
 		for (int i = 2; i <= 10; i++) {
 			lastdayNum = (lastdayNum + 1) * 2;

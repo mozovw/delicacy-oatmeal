@@ -6,25 +6,59 @@ package com.delicacy.oatmeal.test.suanfa.sort;
  **/
 public class Test {
     public static void main(String[] args) {
-        int[] a={11,2,3,4,5,6,7,9,8};
-        System.out.println(biSearch(a,3));
+        int[] a={2,3,4,5,6,7,9,8,44};
+        System.out.println(biSearch(a,44));
+
+        System.out.println(sqrtDigit(6));
     }
 
 
+//    public static int biSearch(int []array,int a){
+//        int left = 0,right = array.length,mid;
+//        while (left < right){
+//            mid = (left+right)/2;
+//            if (array[mid]<a){
+//                left = mid;
+//            }else if(array[mid]>a){
+//                right = mid;
+//            }else {
+//                return mid;
+//            }
+//        }
+//        return -1;
+//    }
+
+
     public static int biSearch(int []array,int a){
-        int low=0;
-        int high=array.length-1;
-        int mid;
-        while(low<=high){
-            mid=(low+high)/2;//中间位置
-            if(array[mid]==a){
-                return mid+1;
-            }else if(array[mid]<a){ //向右查找
-                low=mid+1;
-            }else{ //向左查找
-                high=mid-1;
-            }
+        int left = 0,right = array.length;
+        while (left<right){
+            int mid = (left+right)/2;
+            if (array[mid]>a)right=mid;
+            else if(array[mid]<a)left= mid;
+            else return mid;
         }
         return -1;
+    }
+
+
+//    public static double sqrtDigit(int k) {
+//        double left = 0,right = 2,mid=0,tmp;
+//        while (String.valueOf(mid).length()<k+2){
+//            mid = (left+right)/2;
+//            tmp = mid*mid;
+//            if (tmp<2)left = mid;
+//            else right = mid;
+//        }
+//        return mid;
+//    }
+
+    public static double sqrtDigit(int k) {
+        double left = 0,right = 2,tmp = 0;
+        while (String.valueOf(tmp).length()< k+2){
+            tmp = (left+right)/2;
+            if (tmp*tmp<2)left = tmp;
+            else right = tmp;
+        }
+        return tmp;
     }
 }

@@ -8,34 +8,47 @@ public class FirstRabbit {
 	public static final int MONTH = 15;
 
 	public static void main(String[] args) {
-		// method1();
+		method1();
+		System.out.println("====================");
 		method2(1, 1, 3, MONTH);
 	}
 
+//	protected static void method2(int f1, int f2, int month1, int month2) {
+//		int f = f2;
+//		f2 = f1 + f2;
+//		f1 = f;
+//		System.out.println("第" + month1 + "个月的兔子对数: " + f2);
+//		if (month1 >= month2) return;
+//		method2(f1, f2, ++month1, month2);
+//	}
+
 	protected static void method2(int f1, int f2, int month1, int month2) {
-		int f = f2;
-		f2 = f1 + f2;
-		f1 = f;
-		System.out.print("第" + month1 + "个月的兔子对数: ");
-		System.out.println(" " + f2);
-		if (month1 >= month2) {
-			return;
-		}
-		method2(f1, f2, ++month1, month2);
+		if(month1>month2)return;
+		int tmp = f2;
+		f2 = f1+f2;
+		f1 = tmp;
+		System.out.println("第" + month1 + "个月的兔子对数: " + f2);
+		method2(f1,f2,++month1,month2);
 	}
 
-	/**
-	 * 
-	 */
+//	protected static void method1() {
+//		int f1 = 1, f2 = 1,f;
+//		for (int i = 3; i <= MONTH; i++) {
+//			f = f2;
+//			f2 = f1 + f2;
+//			f1 = f;
+//			System.out.println("第" + i + "个月的兔子对数: " + f2);
+//		}
+//	}
+
 	protected static void method1() {
-		long f1 = 1L, f2 = 1L;
-		long f;
-		for (int i = 3; i < MONTH; i++) {
-			f = f2;
-			f2 = f1 + f2;
-			f1 = f;
-			System.out.print("第" + i + "个月的兔子对数: ");
-			System.out.println(" " + f2);
+		int f1 = 1,f2 =1,tmp,i;
+		for (i = 3; i <= 15; i++) {
+			tmp = f2;
+			f2 = f2 +f1;
+			f1 = tmp;
+			System.out.println("第" + i + "个月的兔子对数: " + f2);
 		}
+
 	}
 }

@@ -33,7 +33,7 @@ public class StringUtilsTest  {
 		System.out.println(StringUtils.getFilename(path));
 		System.out.println(StringUtils.getFilenameExtension(path));
 		System.out.println(StringUtils.stripFilenameExtension(path));
-		// For example, "this:name:is:qualified" returns "qualified" if using a
+		// For example, "this:username:is:qualified" returns "qualified" if using a
 		// ':' separator.
 		System.out.println(StringUtils.unqualify(path, '/'));
 		System.out.println(StringUtils

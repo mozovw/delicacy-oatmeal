@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * function demo
+ * function processor
  * 方法参数以往都是类，变量属性，但是并没有当函数作为入参，而函数入参是有必要的，
  * 1、对于有些方法入参其实只需要一个函数操作后的结果，我不需要知道什么参数类型啊
  * 2、大大减少了很多不必要的代码，什么创建匿名类啊
