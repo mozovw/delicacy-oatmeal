@@ -212,7 +212,7 @@ public class RSAUtil {
         byte[] data = plaintext.getBytes();
         try {
             byte[] en_data = encrypt(publicKey, data);
-            return new String(HexUtil.bytes2Hex(en_data));
+            return HexUtil.bytes2Hex(en_data);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -398,7 +398,7 @@ public class RSAUtil {
             return true;
         }
         for (int i = 0; i < strLen; i++) {
-            if (Character.isWhitespace(cs.charAt(i)) == false) {
+            if (!Character.isWhitespace(cs.charAt(i))) {
                 return false;
             }
         }

@@ -116,7 +116,6 @@ public class JsonMapper {
 	/**
 	 * 反序列化复杂Collection如List<Bean>, contructCollectionType()或contructMapType()构造类型, 然后调用本函数.
 	 * 
-	 * @see #createCollectionType(Class, Class...)
 	 */
 	public <T> T fromJson( String jsonString, JavaType javaType) {
 		if (StringUtils.isEmpty(jsonString)) {
